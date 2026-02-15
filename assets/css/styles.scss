@@ -7,37 +7,37 @@
   @if (lightness($color) > 50) {
     @return #000;
   } @else {
-    @return #fff;
+    @return #f7f4ef;
   }
 }
 
 // Theme Variables
-$text-color: {{site.data.settings.theme.text_color | default: "#404040"}};
-$text-color-lighter: scale-color({{site.data.settings.theme.text_color | default: "#404040"}}, $lightness: 70%);
+$text-color: {{site.data.settings.theme.text_color | default: "#2b2b2d"}};
+$text-color-lighter: scale-color({{site.data.settings.theme.text_color | default: "#2b2b2d"}}, $lightness: 70%);
 
-$primary-color: {{site.data.settings.theme.primary_color | default: "#fff"}};
+$primary-color: {{site.data.settings.theme.primary_color | default: "#f7f4ef"}};
 $primary-text-color: text-clr($primary-color);
-$primary-color-darker: scale-color({{site.data.settings.theme.primary_color | default: "#fff"}}, $lightness: -10%);
+$primary-color-darker: scale-color({{site.data.settings.theme.primary_color | default: "#f7f4ef"}}, $lightness: -10%);
 $primary-text-color-darker: text-clr($primary-color-darker);
-$primary-color-darkest: scale-color({{site.data.settings.theme.primary_color | default: "#fff"}}, $lightness: -30%);
+$primary-color-darkest: scale-color({{site.data.settings.theme.primary_color | default: "#f7f4ef"}}, $lightness: -30%);
 $primary-text-color-darkest: text-clr($primary-color-darkest);
 
 $secondary-color: {{site.data.settings.theme.secondary_color | default: "#afa63d"}};
 $secondary-text-color: text-clr($secondary-color);
-$secondary-color-darker: scale-color({{site.data.settings.theme.secondary_color | default: "#fff"}}, $lightness: -10%);
+$secondary-color-darker: scale-color({{site.data.settings.theme.secondary_color | default: "#f7f4ef"}}, $lightness: -10%);
 $secondary-text-color-darker: text-clr($secondary-color-darker);
-$secondary-color-darkest: scale-color({{site.data.settings.theme.secondary_color | default: "#fff"}}, $lightness: -30%);
+$secondary-color-darkest: scale-color({{site.data.settings.theme.secondary_color | default: "#f7f4ef"}}, $lightness: -30%);
 $secondary-text-color-darkest: text-clr($secondary-color-darkest);
 
 $accent-color: {{site.data.settings.theme.accent_color | default: "#219ab3"}};
 $accent-text-color: text-clr($accent-color);
-$accent-color-darker: scale-color({{site.data.settings.theme.accent_color | default: "#fff"}}, $lightness: -10%);
+$accent-color-darker: scale-color({{site.data.settings.theme.accent_color | default: "#f7f4ef"}}, $lightness: -10%);
 $accent-text-color-darker: text-clr($accent-color-darker);
-$accent-color-darkest: scale-color({{site.data.settings.theme.accent_color | default: "#fff"}}, $lightness: -30%);
+$accent-color-darkest: scale-color({{site.data.settings.theme.accent_color | default: "#f7f4ef"}}, $lightness: -30%);
 $accent-text-color-darkest: text-clr($accent-color-darkest);
 
-$background-color: {{site.data.settings.theme.background_color | default: "#fff"}};
-$background-color-lighter: scale-color({{site.data.settings.theme.background_color | default: "#fff"}}, $lightness: 50%);
+$background-color: {{site.data.settings.theme.background_color | default: "#f7f4ef"}};
+$background-color-lighter: scale-color({{site.data.settings.theme.background_color | default: "#f7f4ef"}}, $lightness: 50%);
 
 :root {
     --intro-background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 0%,

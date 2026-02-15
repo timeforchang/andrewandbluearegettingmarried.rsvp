@@ -19,19 +19,40 @@ theme: jekyll-theme-easy-wedding
 
 And then execute:
 
-    $ bundle
+```
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install jekyll-theme-easy-wedding
+```
+$ gem install jekyll-theme-easy-wedding
+```
 
 ## Usage
 
 The best place to start is by copying the [example folder](https://github.com/cnorick/jekyll-theme-easy-wedding/tree/main/example) to your project, then start editing the .yaml files in [\_data](https://github.com/cnorick/jekyll-theme-easy-wedding/tree/main/example/\_data) to customize the site for your needs.
 
-## Contributing
+Uses [Jekyll](https://jekyllrb.com/) hosted on [GitHub Pages](https://pages.github.com/)
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hello. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+# Getting Started
+
+Ruby and rubygems already installed (working on version 4.0.1):
+
+```
+gem install bundler
+bundle
+```
+
+# Development 
+
+To start a local server: `jekyll serve`
+
+# Deploying
+
+```
+./script/deploy.sh
+```
 
 ## Development
 

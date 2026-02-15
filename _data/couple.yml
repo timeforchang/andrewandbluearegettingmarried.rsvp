@@ -1,0 +1,8 @@
+spouse1: 
+  short_name: Blue
+  long_name: Blue Lin
+  role: Wife
+spouse2:
+  short_name: Andrew
+  long_name: Andrew Chang
+  role: Husband

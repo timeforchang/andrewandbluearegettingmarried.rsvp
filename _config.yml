@@ -1,20 +1,14 @@
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
-  - jekyll-compress-images
-
 # Site settings
-# title: Rebecca & Ryan
-# email: nathan@nathanorick.com
-# url: http://wedding.nathanorick.com
-# description: "We're getting married and can't wait to celebrate with you!"
-# baseurl: "/weddings/sample"
+theme: jekyll-theme-easy-wedding
+title: Andrew and Blue are Getting Married
+email: chang.andrew.23+wedding@gmail.com
+url: https://andrewandbluearegettingmarried.rsvp
+description: "We're getting married"
+baseurl: ""
 
 collections:
   stories:
     sort_by: order
-  modals:
   banners:
 
 sass:
@@ -26,7 +20,7 @@ defaults:
     values:
       image: true
   - scope:
-      path: banners
+      type: banners
     values:
       layout: banner
 
@@ -36,6 +30,3 @@ permalink: pretty
 
 exclude:
   - _compress_images_cache.yml
-
-compress_images:
-  images_path: "{assets,photos}/**/*.{gif,png,jpg,jpeg,svg}"
