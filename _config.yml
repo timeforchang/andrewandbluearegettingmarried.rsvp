@@ -2,7 +2,7 @@
 theme: jekyll-theme-easy-wedding
 title: Andrew and Blue are Getting Married
 email: chang.andrew.23+wedding@gmail.com
-url: https://andrewandbluearegettingmarried.rsvp
+url: https://localhost:4000
 description: "We're getting married"
 baseurl: ""
 
