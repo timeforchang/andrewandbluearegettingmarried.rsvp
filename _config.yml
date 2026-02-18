@@ -5,6 +5,7 @@ email: chang.andrew.23+wedding@gmail.com
 url: "https://www.andrewandbluearegettingmarried.rsvp"
 description: "We're getting married"
 baseurl: ""
+context: "chi"
 
 collections:
   stories:
