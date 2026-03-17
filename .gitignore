@@ -1,3 +1,7 @@
 _site
 .DS_Store
 .jekyll-cache
+.env
+encrypted
+decrypted
+.staticrypt.json
