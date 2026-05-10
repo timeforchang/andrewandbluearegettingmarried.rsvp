@@ -30,7 +30,9 @@
   "dependencies": {
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.2",
-    "bootstrap-icons": "^1.5.0"
+    "bootstrap-icons": "^1.5.0",
+    "cheerio": "1.0.0-rc.12",
+    "js-yaml": "^4.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
@@ -41,9 +43,11 @@
     "cssnano": "^5.0.7",
     "exports-loader": "^3.0.0",
     "file-loader": "^6.2.0",
+    "javascript-obfuscator": "^5.4.2",
     "node-sass": "^6.0.1",
     "postcss-loader": "^6.1.1",
     "sass-loader": "^12.1.0",
+    "staticrypt": "^3.5.4",
     "style-loader": "^3.2.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.47.1",

@@ -1,7 +1,34 @@
+# Build outputs
 _site
-.DS_Store
+assets/*.js
+assets/*.map
 .jekyll-cache
+.jekyll-metadata
+
+# Environment & Secrets
 .env
+env/*
 encrypted
 decrypted
 .staticrypt.json
+
+# Dependencies
+node_modules/*
+.bundle/
+Gemfile.lock
+
+# Cache files
+*_compress_images_cache.yml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Editor temp files
+*.swp
+*.swo
+*~
