@@ -4,9 +4,9 @@ const cheerio = require('cheerio');
 const JavaScriptObfuscator = require('javascript-obfuscator');
 const yaml = require('js-yaml');
 
-const config = yaml.load(fs.readFileSync('encrypted-pages.yml', 'utf8'));
+const config = yaml.load(fs.readFileSync('config/encrypted-pages.yml', 'utf8'));
 const pages = config.pages;
-const siteDir = '_site';
+const siteDir = 'build';
 
 pages.forEach(page => {
   const filePath = path.join(siteDir, page);

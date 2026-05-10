@@ -26,8 +26,13 @@ defaults:
       layout: banner
 
 # Build settings
+source: src
+destination: build
 markdown: kramdown
 permalink: pretty
 
 exclude:
   - _compress_images_cache.yml
+  - config/
+  - scripts/
+  - encrypted-pages.yml

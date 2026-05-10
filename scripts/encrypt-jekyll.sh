@@ -14,10 +14,10 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-TEMPLATE_FILE="password_template.html"
+TEMPLATE_FILE="src/password_template.html"
 ENV_FILE=".env"
-OUTPUT_DIR="encrypted"
-SITE_DIR="_site"
+OUTPUT_DIR="src/encrypted"
+SITE_DIR="build"
 
 # Parse options
 SKIP_BUILD=false

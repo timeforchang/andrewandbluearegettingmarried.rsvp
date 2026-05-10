@@ -1,7 +1,7 @@
 # Build outputs
-_site
-assets/*.js
-assets/*.map
+build/
+src/assets/*.js
+src/assets/*.map
 .jekyll-cache
 .jekyll-metadata
 
