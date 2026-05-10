@@ -46,11 +46,11 @@
     "javascript-obfuscator": "^5.4.2",
     "sass-embedded": "^1.69.0",
     "postcss-loader": "^6.1.1",
-    "sass-loader": "^12.1.0",
+    "sass-loader": "^16.0.8",
     "staticrypt": "^3.5.4",
     "style-loader": "^3.2.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^5.47.1",
+    "webpack": "^5.104.1",
     "webpack-cli": "^4.7.2"
   }
 }
