@@ -54,7 +54,9 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
-            options: {},
+            options: {
+              implementation: require('sass-embedded'),
+            },
           },
         ],
       },
