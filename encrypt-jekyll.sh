@@ -85,23 +85,30 @@ if [ ! -f "$TEMPLATE_FILE" ]; then
     exit 1
 fi
 
-# Load environment variables from .env file
-if [ -f "$ENV_FILE" ]; then
-    print_status "Loading environment variables from $ENV_FILE"
-    set -a
-    source "$ENV_FILE"
-    set +a
-    
-    # Check if STATICRYPT_PASSWORD is set
-    if [ -z "$STATICRYPT_PASSWORD" ]; then
-        print_error "STATICRYPT_PASSWORD not found in $ENV_FILE"
-        exit 1
-    else
-        print_success "Password loaded from environment"
-    fi
+# Check if STATICRYPT_PASSWORD is set in environment
+if [ -n "$STATICRYPT_PASSWORD" ]; then
+    print_success "Password loaded from environment variable"
 else
-    print_error ".env file not found! Please create one with STATICRYPT_PASSWORD=your_password"
-    exit 1
+    # Fallback to .env file if environment variable is not set
+    ENV_FILE=".env"
+    if [ -f "$ENV_FILE" ]; then
+        print_status "Loading environment variables from $ENV_FILE"
+        set -a
+        source "$ENV_FILE"
+        set +a
+        
+        # Check if STATICRYPT_PASSWORD is set
+        if [ -z "$STATICRYPT_PASSWORD" ]; then
+            print_error "STATICRYPT_PASSWORD not found in $ENV_FILE"
+            exit 1
+        else
+            print_success "Password loaded from .env file"
+        fi
+    else
+        print_error "STATICRYPT_PASSWORD environment variable not set and .env file not found!"
+        print_error "Please set STATICRYPT_PASSWORD environment variable or create a .env file"
+        exit 1
+    fi
 fi
 
 # Step 1: Build Jekyll site (if not skipped)
