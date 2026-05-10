@@ -36,7 +36,7 @@ jobs:
           node-version: '18' # Use Node 18 for compatibility
 
       - name: Install Node dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build with Jekyll
         run: bundle exec jekyll build --verbose
