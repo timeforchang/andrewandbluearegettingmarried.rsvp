@@ -47,6 +47,9 @@ jobs:
       - name: Create .env file for encryption
         run: echo "STATICRYPT_PASSWORD=${{ secrets.STATICRYPT_PASSWORD }}" > .env
 
+      - name: Make encryption script executable
+        run: chmod +x encrypt-jekyll.sh
+
       - name: Encrypt specified pages
         run: ./encrypt-jekyll.sh --skip-build --config encrypted-pages.yml
 
