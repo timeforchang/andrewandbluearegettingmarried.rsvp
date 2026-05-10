@@ -45,7 +45,8 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Create .env file for encryption
-        run: echo "STATICRYPT_PASSWORD=${{ secrets.STATICRYPT_PASSWORD }}" > .env
+        run: |
+          echo "STATICRYPT_PASSWORD=$(echo '${{ secrets.STATICRYPT_PASSWORD }}')" > .env
 
       - name: Make encryption script executable
         run: chmod +x encrypt-jekyll.sh
