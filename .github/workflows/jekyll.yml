@@ -44,15 +44,13 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Create .env file for encryption
-        run: |
-          echo "STATICRYPT_PASSWORD=$(echo '${{ secrets.STATICRYPT_PASSWORD }}')" > .env
-
       - name: Make encryption script executable
         run: chmod +x encrypt-jekyll.sh
 
       - name: Encrypt specified pages
         run: ./encrypt-jekyll.sh --skip-build --config encrypted-pages.yml
+        env:
+          STATICRYPT_PASSWORD: ${{ secrets.STATICRYPT_PASSWORD }}
 
       - name: Obfuscate JavaScript in HTML pages
         run: node obfuscate-html.js
