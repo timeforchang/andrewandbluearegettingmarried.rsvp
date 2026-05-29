@@ -39,6 +39,9 @@ jobs:
       - name: Install Node dependencies
         run: npm install --legacy-peer-deps
 
+      - name: Build assets with Webpack
+        run: npm run build:webpack
+
       - name: Build with Jekyll
         run: bundle exec jekyll build --verbose
         env:
