@@ -1,5 +1,4 @@
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // const webpack = require("webpack");
 
 // https://webpack.js.org/configuration/
@@ -14,15 +13,6 @@ module.exports = {
   resolve: {
     extensions: ['.json', '.js', '.jsx'],
     modules: ['node_modules'],
-  },
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true, // set to true if you want JS source maps
-      }),
-    ],
   },
   module: {
     rules: [
