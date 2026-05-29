@@ -4,10 +4,10 @@ const path = require('path');
 // https://webpack.js.org/configuration/
 module.exports = {
   entry: {
-    main: path.join(__dirname, '_webpack', 'main'),
+    main: path.join(__dirname, 'src', '_webpack', 'main'),
   },
   output: {
-    path: path.resolve(__dirname, 'assets'),
+    path: path.resolve(__dirname, 'src', 'assets'),
     filename: '[name]-bundle.js',
   },
   resolve: {
