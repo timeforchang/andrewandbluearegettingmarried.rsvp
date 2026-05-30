@@ -1,0 +1,1055 @@
+---
+---
+{% assign wedding = site.data.events | where: "main_event", true | first %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ site.data.couple.spouse1.short_name }} &amp; {{ site.data.couple.spouse2.short_name }} — May 8, 2027</title>
+<link rel="icon" href="{{ "/assets/img/favicon.png?v=1.0" | prepend: site.baseurl }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+{% if jekyll.environment == "production" %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.data.settings.google_analytics_id }}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{ site.data.settings.google_analytics_id }}');
+</script>
+{% endif %}
+<style>
+:root {
+  --navy:       #0E2340;
+  --cobalt:     #1A3A72;
+  --cobalt-mid: #1E4F9C;
+  --blue-light: #3A6BB5;
+  --blue-pale:  #6B9FD4;
+  --p-wash:     #D8EAFA;
+  --p-mid:      #B0CFED;
+  --p-tint:     #EDF5FC;
+  --gold:       #C8A96E;
+  --gold-light: #E2C99A;
+  --gold-pale:  #F5EDDC;
+  --glaze:      #FDFCFA;
+  --ink:        #0A1828;
+  --ink-mid:    #243552;
+  --ink-light:  #4A6080;
+  --cream:      #F8F5EF;
+  --cream-deep: #EFE9DF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--glaze);color:var(--ink);overflow-x:hidden;}
+
+/* ─── TYPOGRAPHY ─── */
+.serif       { font-family:'Cormorant Garamond',serif; }
+.serif-italic{ font-family:'Cormorant Garamond',serif; font-style:italic; }
+
+/* ─── NAV ─── */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(253,252,250,0.96);
+  backdrop-filter:blur(16px);
+  transition:border-color .4s, box-shadow .4s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled {
+  border-bottom-color:rgba(200,169,110,0.2);
+  box-shadow:0 2px 32px rgba(14,35,64,0.06);
+}
+.nav-inner {
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 60px;height:68px;
+  max-width:1300px;margin:0 auto;
+}
+.nav-monogram {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-style:italic;font-weight:400;
+  color:var(--navy);text-decoration:none;letter-spacing:.02em;
+}
+.nav-links{display:flex;gap:0;list-style:none;height:100%;align-items:stretch;}
+.nav-links li{display:flex;align-items:stretch;}
+.nav-links a {
+  display:flex;align-items:center;
+  font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-mid);text-decoration:none;
+  padding:0 16px;position:relative;transition:color .25s;
+}
+.nav-links a::after {
+  content:'';position:absolute;bottom:0;left:16px;right:16px;
+  height:1px;background:var(--gold);
+  transform:scaleX(0);transform-origin:center;
+  transition:transform .3s ease;
+}
+.nav-links a:hover{color:var(--navy);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-links a.active{color:var(--navy);}
+.nav-rsvp-wrap{display:flex;align-items:center;padding-left:24px;}
+.nav-rsvp {
+  font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:400;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--glaze)!important;background:var(--navy);
+  padding:10px 22px;text-decoration:none;
+  border:1px solid var(--navy);
+  transition:background .25s, border-color .25s;
+}
+.nav-rsvp:hover{background:var(--cobalt-mid);border-color:var(--cobalt-mid);}
+.nav-rsvp::after{display:none!important;}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.nav-hamburger span{display:block;width:22px;height:1px;background:var(--navy);transition:all .3s;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:rgba(253,252,250,0.98);border-bottom:1px solid rgba(200,169,110,0.2);padding:8px 0 20px;}
+.nav-drawer.open{display:block;}
+.nav-drawer a{display:block;padding:13px 32px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-light);text-decoration:none;transition:color .15s,background .15s;}
+.nav-drawer a:hover{color:var(--navy);background:rgba(200,169,110,0.05);}
+.nav-drawer a.rsvp-mobile{color:var(--navy);}
+
+/* ─── CORNER BOTANICALS ─── */
+.corner-svg{position:absolute;pointer-events:none;}
+.corner-img{position:absolute;pointer-events:none;mix-blend-mode:multiply;opacity:0.88;width:clamp(160px,calc(50vw - 360px),430px);height:auto;-webkit-mask-image:radial-gradient(circle at 0% 0%,black 52%,transparent 92%);mask-image:radial-gradient(circle at 0% 0%,black 52%,transparent 92%);}
+.corner-tl{top:0;left:0;}
+.corner-tr{top:0;right:0;transform:scaleX(-1);}
+.corner-bl{bottom:0;left:0;transform:scaleY(-1);}
+.corner-br{bottom:0;right:0;transform:scale(-1,-1);}
+
+/* ─── SECTION ANCHOR ─── */
+.section-anchor{display:block;height:68px;margin-top:-68px;visibility:hidden;pointer-events:none;}
+
+/* ─── HERO ─── */
+#hero{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  background-image:url('{{ "/assets/img/porcelain-blue.jpg" | prepend: site.baseurl }}');
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  overflow:hidden;
+}
+#hero::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(255,255,255,0.15);
+  pointer-events:none;
+}
+.hero-content{text-align:center;position:relative;z-index:2;padding:64px 72px 56px;background:rgba(253,252,250,0.96);border:.5px solid rgba(200,169,110,0.4);border-top:3px solid var(--cobalt);margin:80px 24px;max-width:700px;box-shadow:0 32px 96px rgba(14,35,64,0.38),0 8px 32px rgba(14,35,64,0.2);backdrop-filter:blur(4px);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-content>*{animation:fadeUp 1s ease both;}
+
+.hero-kicker{
+  font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:500;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--cobalt);margin-bottom:32px;animation-delay:.05s;
+}
+.hero-names{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(64px,9vw,112px);
+  font-style:italic;font-weight:500;
+  color:var(--navy);line-height:.95;
+  letter-spacing:-.01em;animation-delay:.14s;
+}
+.hero-amp{
+  display:block;
+  font-size:clamp(22px,3.5vw,38px);
+  color:var(--gold);letter-spacing:.15em;
+  margin:12px 0;font-style:normal;font-weight:300;
+}
+.hero-ornament{
+  display:flex;align-items:center;gap:14px;
+  justify-content:center;margin:36px auto 32px;
+  animation-delay:.26s;
+}
+.hero-ornament-line{width:48px;height:.5px;background:var(--gold-light);}
+.hero-ornament-diamond{
+  width:6px;height:6px;background:var(--gold);
+  transform:rotate(45deg);flex-shrink:0;
+}
+.hero-ornament-dot{width:3px;height:3px;background:var(--gold-light);border-radius:50%;flex-shrink:0;}
+
+.hero-date{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,2.2vw,23px);font-weight:500;
+  letter-spacing:.18em;color:var(--cobalt);
+  margin-bottom:7px;animation-delay:.32s;
+}
+.hero-venue-wrap{
+  margin-bottom:6px;animation-delay:.36s;
+  padding:14px 0 12px;
+}
+.hero-venue-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,2.6vw,28px);font-style:italic;font-weight:500;
+  color:var(--cobalt);letter-spacing:.04em;margin-bottom:6px;
+}
+.hero-loc{
+  font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-light);margin-bottom:0;
+}
+.hero-dress{
+  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:400;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-mid);margin-bottom:48px;animation-delay:.4s;
+}
+.hero-cta{
+  display:inline-block;
+  font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:400;
+  letter-spacing:.25em;text-transform:uppercase;
+  color:var(--glaze);background:var(--navy);
+  border:1px solid var(--navy);
+  padding:15px 40px;text-decoration:none;
+  transition:background .3s, border-color .3s, color .3s;
+  animation-delay:.46s;
+}
+.hero-cta:hover{background:transparent;color:var(--navy);}
+
+.hero-countdown{
+  display:flex;gap:28px;justify-content:center;
+  margin-top:56px;animation-delay:.52s;
+}
+.cd-unit{text-align:center;}
+.cd-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;font-weight:300;
+  color:var(--navy);display:block;line-height:1;
+}
+.cd-lbl{
+  font-family:'Montserrat',sans-serif;font-size:8px;font-weight:300;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-light);display:block;margin-top:6px;
+}
+.cd-sep{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;color:var(--gold-light);
+  align-self:flex-start;margin-top:4px;
+}
+
+/* ─── SHARED SECTION ─── */
+.page-section{position:relative;padding:108px 60px;overflow:hidden;}
+.page-section.cream{background:var(--cream);}
+.page-section.tint{background:var(--p-tint);}
+.page-section.dark{background:var(--navy);}
+.page-section.gold-bg{background:var(--gold-pale);}
+.section-inner{max-width:920px;margin:0 auto;}
+
+.section-eyebrow{
+  font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:400;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);
+  display:flex;align-items:center;gap:14px;justify-content:center;
+  margin-bottom:14px;
+}
+.section-eyebrow::before,.section-eyebrow::after{
+  content:'';flex:1;max-width:28px;height:.5px;background:var(--gold-light);
+}
+.section-heading{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(42px,5.5vw,66px);font-style:italic;font-weight:500;
+  color:var(--navy);text-align:center;
+  margin-bottom:48px;line-height:1.08;letter-spacing:.01em;
+}
+.section-ornament{
+  display:flex;align-items:center;gap:10px;
+  justify-content:center;margin-bottom:48px;margin-top:-36px;
+}
+.section-ornament-line{width:28px;height:.5px;background:var(--gold-light);}
+.section-ornament-diamond{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
+.section-ornament-dot{width:2.5px;height:2.5px;background:var(--gold-light);border-radius:50%;flex-shrink:0;}
+
+.dark .section-eyebrow{color:var(--gold-light);}
+.dark .section-eyebrow::before,.dark .section-eyebrow::after{background:rgba(200,169,110,0.3);}
+.dark .section-heading{color:rgba(253,252,250,0.85);}
+.dark .section-ornament-line{background:rgba(200,169,110,0.3);}
+.dark .section-ornament-diamond{background:var(--gold-light);}
+
+/* ─── STORY ─── */
+.story-body{
+  font-family:'EB Garamond',serif;
+  font-size:20px;line-height:1.9;
+  color:var(--ink-mid);text-align:center;
+  max-width:640px;margin:0 auto;
+}
+.story-body p+p{margin-top:1.4em;}
+.story-pull{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(26px,3.5vw,40px);font-style:italic;font-weight:300;
+  color:var(--cobalt-mid);text-align:center;
+  max-width:560px;margin:56px auto;line-height:1.3;
+  padding:28px 32px;
+  border-top:.5px solid var(--gold-light);
+  border-bottom:.5px solid var(--gold-light);
+  position:relative;
+}
+.story-pull::before,.story-pull::after{
+  content:'◆';
+  font-size:8px;color:var(--gold);
+  position:absolute;left:50%;transform:translateX(-50%);
+}
+.story-pull::before{top:-6px;}
+.story-pull::after{bottom:-6px;}
+
+/* ─── STORY SLIDESHOW ─── */
+.story-slideshow{max-width:640px;margin:52px auto;}
+.slideshow-wrapper{
+  position:relative;
+  border:.5px solid rgba(200,169,110,0.3);
+  box-shadow:0 20px 60px rgba(14,35,64,0.13),0 4px 16px rgba(14,35,64,0.07);
+}
+.slideshow-track{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;}
+.slide.active{opacity:1;}
+.slide-img{width:100%;height:100%;object-fit:cover;display:block;}
+.slide-placeholder{
+  width:100%;height:100%;
+  background:linear-gradient(160deg,var(--p-wash) 0%,var(--cream-deep) 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.ss-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(253,252,250,0.94);
+  border:.5px solid rgba(200,169,110,0.45);
+  backdrop-filter:blur(8px);
+  cursor:pointer;
+  color:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  z-index:2;
+  box-shadow:0 2px 12px rgba(14,35,64,0.1);
+  transition:background .25s,border-color .25s,color .25s,box-shadow .25s;
+}
+.ss-btn:hover{
+  background:var(--navy);color:var(--glaze);
+  border-color:var(--navy);box-shadow:0 4px 20px rgba(14,35,64,0.22);
+}
+.ss-prev{left:-19px;}
+.ss-next{right:-19px;}
+.ss-dots{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:18px;}
+.ss-dot{
+  width:22px;height:1.5px;border-radius:1px;
+  background:rgba(200,169,110,0.3);border:none;cursor:pointer;padding:0;
+  transition:background .3s,width .3s;
+}
+.ss-dot.active{background:var(--gold);width:34px;}
+.slide-caption{
+  position:absolute;bottom:12px;right:14px;
+  font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:300;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(253,252,250,.92);
+  background:rgba(14,35,64,.45);
+  backdrop-filter:blur(6px);
+  padding:5px 10px;
+  pointer-events:none;
+}
+@media(max-width:900px){
+  .ss-prev{left:10px;}
+  .ss-next{right:10px;}
+}
+
+/* ─── STORY LAYOUT ─── */
+.story-layout{
+  display:grid;grid-template-columns:1.65fr 1fr;
+  gap:52px;align-items:start;margin:0 auto;
+}
+.story-media{position:sticky;top:88px;}
+.story-media .story-slideshow{max-width:none;margin:0;}
+.story-text-col{padding-top:4px;}
+.story-text-col .story-body{text-align:left;max-width:none;margin:0;}
+.story-drop-cap::first-letter{
+  font-family:'Cormorant Garamond',serif;
+  font-size:76px;font-weight:400;font-style:italic;
+  color:var(--cobalt);float:left;line-height:0.72;margin:6px 10px 0 0;
+}
+.story-tag{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+.story-tag-line{width:24px;height:.5px;background:var(--gold-light);}
+.story-tag-text{
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);white-space:nowrap;
+}
+.story-text-col .story-pull{max-width:none;margin:40px 0;}
+
+/* ─── WEDDING PARTY ─── */
+.party-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:36px 24px;max-width:840px;margin:0 auto;}
+.party-member{width:168px;flex-shrink:0;}
+.party-divider{
+  width:100%;display:flex;align-items:center;gap:16px;
+  margin:4px 0;
+}
+.party-divider-line{flex:1;height:.5px;background:rgba(14,35,64,0.1);}
+.party-divider-label{
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  white-space:nowrap;
+}
+.party-member{text-align:center;}
+.party-photo{
+  width:100%;aspect-ratio:1/1;
+  border-radius:50%;
+  background:linear-gradient(160deg,var(--p-wash) 0%,var(--cream-deep) 100%);
+  border:none;
+  box-shadow:0 0 0 4px var(--glaze),0 0 0 6.5px var(--blue-pale),0 8px 24px rgba(14,35,64,0.1);
+  margin-bottom:20px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.party-photo::before,.party-photo::after{display:none;}
+.party-photo-init{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-style:italic;
+  color:var(--blue-pale);
+}
+.party-role{
+  font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:5px;
+}
+.party-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:400;color:var(--navy);
+}
+.party-note{
+  font-family:'EB Garamond',serif;font-size:14px;font-style:italic;
+  color:var(--ink-light);margin-top:5px;line-height:1.55;
+}
+
+/* ─── SCHEDULE ─── */
+.sched-day-label{
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:400;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);text-align:center;
+  padding-bottom:10px;
+  border-bottom:.5px solid rgba(200,169,110,0.25);
+  margin-bottom:2px;
+}
+.schedule-wrap{
+  display:grid;
+  grid-template-columns:1fr 1px 1fr 1px 1fr;
+  gap:0 48px;align-items:start;
+  max-width:920px;margin:0 auto;
+}
+.schedule-div{background:rgba(200,169,110,0.18);}
+.sched-col-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-style:italic;
+  letter-spacing:.12em;color:var(--ink-light);
+  margin-bottom:28px;text-align:center;
+}
+.sched-item{display:flex;gap:16px;margin-bottom:24px;align-items:flex-start;}
+.sched-time{
+  font-family:'EB Garamond',serif;font-size:16px;
+  letter-spacing:.06em;color:var(--gold);
+  min-width:58px;padding-top:2px;text-align:right;
+}
+.sched-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--gold-pale);
+  border:1px solid var(--gold);
+  margin-top:7px;flex-shrink:0;
+}
+.sched-event{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:400;color:var(--navy);line-height:1.2;
+}
+.sched-sub{
+  font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:300;
+  color:var(--ink-light);margin-top:3px;letter-spacing:.04em;
+}
+.dress-code-bar{
+  max-width:920px;margin:52px auto 0;
+  padding:24px 36px;
+  border:.5px solid rgba(200,169,110,0.3);
+  background:rgba(200,169,110,0.04);
+  display:flex;align-items:center;justify-content:center;gap:20px;
+}
+.dress-code-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
+.dress-code-text{
+  font-family:'EB Garamond',serif;font-size:17px;
+  color:var(--ink-mid);text-align:center;
+}
+.dress-code-text strong{
+  font-family:'Cormorant Garamond',serif;font-size:19px;
+  font-weight:400;color:var(--navy);font-style:italic;
+}
+
+/* ─── TRAVEL ─── */
+.travel-section .travel-card{
+  background:rgba(253,252,250,0.82);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.travel-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;max-width:920px;margin:0 auto;background:rgba(200,169,110,0.15);}
+.travel-card{background:var(--glaze);padding:36px 30px;}
+.travel-card-icon{width:32px;height:32px;margin-bottom:18px;opacity:.55;}
+.travel-card-title{
+  font-family:'Cormorant Garamond',serif;font-size:22px;
+  font-weight:400;font-style:italic;color:var(--navy);margin-bottom:10px;
+}
+.travel-card-body{
+  font-family:'EB Garamond',serif;font-size:17px;
+  color:var(--ink-mid);line-height:1.75;
+}
+.travel-card-link{
+  display:inline-block;margin-top:16px;
+  font-family:'Montserrat',sans-serif;font-size:9px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;
+  border-bottom:.5px solid rgba(200,169,110,0.4);padding-bottom:2px;
+  transition:color .2s,border-color .2s;
+}
+.travel-card-link:hover{color:var(--navy);border-color:var(--navy);}
+
+/* ─── GIFTS ─── */
+.registry-note{
+  font-family:'EB Garamond',serif;font-size:20px;
+  line-height:1.85;color:var(--ink-mid);
+  text-align:center;max-width:560px;margin:0 auto 56px;
+}
+.gift-cards{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:760px;margin:0 auto;border:.5px solid rgba(200,169,110,0.25);}
+.gift-card{padding:48px 40px;text-align:center;position:relative;}
+.gift-card:first-child{border-right:.5px solid rgba(200,169,110,0.25);}
+.gift-card-icon-wrap{
+  width:52px;height:52px;
+  border:1px solid rgba(200,169,110,0.3);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 22px;
+}
+.gift-card-icon-wrap svg{width:22px;height:22px;opacity:.7;}
+.gift-card-eyebrow{
+  font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:400;
+  letter-spacing:.25em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;
+}
+.gift-card-title{
+  font-family:'Cormorant Garamond',serif;font-size:28px;
+  font-weight:300;font-style:italic;color:var(--navy);
+  margin-bottom:16px;line-height:1.1;
+}
+.gift-card-body{
+  font-family:'EB Garamond',serif;font-size:17px;
+  line-height:1.8;color:var(--ink-mid);margin-bottom:30px;
+}
+.gift-card-btn{
+  display:inline-block;
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--navy);
+  border:.5px solid rgba(14,35,64,0.3);
+  padding:11px 26px;text-decoration:none;
+  transition:background .25s, color .25s, border-color .25s;
+}
+.gift-card-btn:hover{background:var(--navy);color:var(--glaze);border-color:var(--navy);}
+.gift-card-or{
+  display:flex;align-items:center;gap:16px;
+  max-width:760px;margin:32px auto 0;
+}
+.gift-card-or-line{flex:1;height:.5px;background:rgba(200,169,110,0.2);}
+.gift-card-or-text{
+  font-family:'EB Garamond',serif;font-size:14px;
+  letter-spacing:.06em;color:var(--gold);font-style:italic;
+  white-space:nowrap;
+}
+
+/* ─── RSVP ─── */
+.rsvp-note{
+  font-family:'EB Garamond',serif;font-size:19px;
+  color:rgba(225,210,185,.7);text-align:center;
+  max-width:440px;margin:0 auto 44px;line-height:1.75;
+}
+.rsvp-form{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+.rsvp-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.rsvp-form input,.rsvp-form select,.rsvp-form textarea{
+  width:100%;background:rgba(255,255,255,.04);
+  border:.5px solid rgba(200,169,110,.2);
+  padding:14px 16px;
+  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:300;
+  color:rgba(253,252,250,.9);letter-spacing:.06em;
+  outline:none;transition:border-color .25s;-webkit-appearance:none;appearance:none;
+}
+.rsvp-form input::placeholder,.rsvp-form textarea::placeholder{color:rgba(200,169,110,.3);}
+.rsvp-form input:focus,.rsvp-form select:focus,.rsvp-form textarea:focus{border-color:rgba(200,169,110,.5);}
+.rsvp-form select option{background:var(--navy);color:rgba(253,252,250,.9);}
+.rsvp-form textarea{resize:vertical;min-height:90px;}
+.rsvp-submit{
+  font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:400;
+  letter-spacing:.25em;text-transform:uppercase;
+  color:var(--navy);background:var(--gold-light);
+  border:none;padding:16px;cursor:pointer;
+  transition:background .25s;width:100%;margin-top:4px;
+}
+.rsvp-submit:hover{background:var(--glaze);}
+.rsvp-success{
+  display:none;text-align:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;font-style:italic;
+  color:var(--gold-light);padding:44px 20px;
+  line-height:1.4;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--cream);text-align:center;
+  padding:52px;
+  border-top:1px solid rgba(200,169,110,0.15);
+}
+.footer-ornament{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:18px;}
+.footer-ornament-line{width:36px;height:.5px;background:var(--gold-light);}
+.footer-ornament-diamond{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);}
+.footer-mono{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-style:italic;font-weight:300;
+  color:var(--navy);margin-bottom:10px;
+}
+.footer-date{
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:300;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--gold);
+}
+
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ─── MOBILE ─── */
+@media(max-width:900px){
+  .nav-inner{padding:0 24px;}
+  .nav-links,.nav-rsvp-wrap{display:none;}
+  .nav-hamburger{display:flex;}
+  .page-section{padding:76px 28px;}
+  .schedule-wrap{grid-template-columns:1fr!important;}
+  .schedule-div{display:none;}
+  .sched-day-label{text-align:left;}
+  div.day-label-row{display:none!important;}
+  .rsvp-row{grid-template-columns:1fr;}
+  .party-member{width:calc(50% - 12px);}
+  .gift-cards{grid-template-columns:1fr;}
+  .gift-card:first-child{border-right:none;border-bottom:.5px solid rgba(200,169,110,0.25);}
+  .dress-code-bar{padding:18px 20px;}
+  .story-layout{grid-template-columns:1fr;gap:40px;}
+  .story-media{position:static;}
+  .story-text-col .story-body{text-align:center;max-width:640px;margin:0 auto;}
+  .story-tag{justify-content:center;}
+  .story-drop-cap::first-letter{float:none;font-size:1em;line-height:inherit;margin:0;}
+  .story-text-col .story-pull{margin:40px auto;}
+}
+@media(max-width:480px){
+  .corner-svg{width:100px;}
+  .corner-img{width:min(130px,28vw);}
+  .hero-content{padding:44px 28px 40px;margin:60px 16px;}
+  .hero-countdown{gap:16px;}
+  .party-grid{gap:22px 14px;}
+  .party-member{width:calc(50% - 7px);}
+}
+</style>
+</head>
+<body>
+<!-- don't forget the secret: 5ecretPassword!! -->
+
+<!-- ════ NAV ════ -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-monogram">{{ site.data.couple.spouse1.short_name }} &amp; {{ site.data.couple.spouse2.short_name }}</a>
+    <ul class="nav-links">
+      <li><a href="#story"    data-section="story">Our Story</a></li>
+      <li><a href="#party"    data-section="party">Wedding Party</a></li>
+      <li><a href="#schedule" data-section="schedule">Schedule</a></li>
+      <li><a href="#travel"   data-section="travel">Travel</a></li>
+      <li><a href="#registry" data-section="registry">Gifts</a></li>
+    </ul>
+    <div class="nav-rsvp-wrap"><a href="#rsvp" class="nav-rsvp">RSVP</a></div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="#story"    onclick="closeDrawer()">Our Story</a>
+  <a href="#party"    onclick="closeDrawer()">Wedding Party</a>
+  <a href="#schedule" onclick="closeDrawer()">Schedule</a>
+  <a href="#travel"   onclick="closeDrawer()">Travel</a>
+  <a href="#registry" onclick="closeDrawer()">Gifts</a>
+  <a href="#rsvp"     onclick="closeDrawer()" class="rsvp-mobile">RSVP</a>
+</div>
+
+<!-- ════ HERO ════ -->
+<section id="hero">
+
+  <div class="hero-content">
+    <p class="hero-kicker">Request the pleasure of your company</p>
+    <h1 class="hero-names">
+      {{ site.data.couple.spouse1.short_name }}<span class="hero-amp">&amp;</span>{{ site.data.couple.spouse2.short_name }}
+    </h1>
+    <div class="hero-ornament">
+      <div class="hero-ornament-line"></div>
+      <div class="hero-ornament-dot"></div>
+      <div class="hero-ornament-diamond"></div>
+      <div class="hero-ornament-dot"></div>
+      <div class="hero-ornament-line"></div>
+    </div>
+    <p class="hero-date">Saturday, the Eighth of May, 2027</p>
+    <div class="hero-venue-wrap">
+      <p class="hero-venue-name">{{ wedding.location.venue_name }}</p>
+      <p class="hero-loc">{{ wedding.location.city }}, {{ wedding.location.long_state }}</p>
+    </div>
+    <p class="hero-dress">Dress code &nbsp;·&nbsp; Formal</p>
+    <a href="#rsvp" class="hero-cta">Kindly RSVP</a>
+    <div class="hero-countdown">
+      <div class="cd-unit"><span class="cd-num" id="cd-days">—</span><span class="cd-lbl">Days</span></div>
+      <span class="cd-sep">·</span>
+      <div class="cd-unit"><span class="cd-num" id="cd-hours">—</span><span class="cd-lbl">Hours</span></div>
+      <span class="cd-sep">·</span>
+      <div class="cd-unit"><span class="cd-num" id="cd-mins">—</span><span class="cd-lbl">Mins</span></div>
+      <span class="cd-sep">·</span>
+      <div class="cd-unit"><span class="cd-num" id="cd-secs">—</span><span class="cd-lbl">Secs</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ OUR STORY ════ -->
+<span class="section-anchor" id="story"></span>
+<section class="page-section cream" style="padding-bottom:64px;">
+  <img class="corner-img corner-tl" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+  <img class="corner-img corner-tr" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+  <div class="section-inner">
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="section-heading">How it began</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+    <div class="story-layout">
+
+      <div class="story-media reveal">
+        <div class="story-slideshow">
+          {% assign photos = site.static_files | where: "image", true %}
+          <div class="slideshow-wrapper">
+            <div class="slideshow-track">
+              {% for photo in photos %}
+              {% assign meta = site.data.photos | where: "file", photo.name | first %}
+              <div class="slide{% if forloop.first %} active{% endif %}">
+                <img class="slide-img" src="{{ photo.path | prepend: site.baseurl }}" alt="Photo {{ forloop.index }}"{% if meta.position %} style="object-position:{{ meta.position }}"{% endif %}>
+                {% if meta %}<div class="slide-caption">{{ meta.place }} · {{ meta.year }}</div>{% endif %}
+              </div>
+              {% endfor %}
+            </div>
+            <button class="ss-btn ss-prev" id="ss-prev" aria-label="Previous photo">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="ss-btn ss-next" id="ss-next" aria-label="Next photo">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="ss-dots">
+            {% for photo in photos %}
+            <button class="ss-dot{% if forloop.first %} active{% endif %}" data-slide="{{ forloop.index0 }}" aria-label="Photo {{ forloop.index }}"></button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="story-text-col reveal">
+        <div class="story-body">
+          <p class="story-drop-cap">[To be filled in — our story goes here]</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ WEDDING PARTY ════ -->
+<span class="section-anchor" id="party"></span>
+<section class="page-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Wedding Party</p>
+    <h2 class="section-heading">The people who got us here</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+    <div class="party-grid">
+      <div class="party-divider"><div class="party-divider-line"></div><span class="party-divider-label">{{ site.data.couple.spouse1.short_name }}'s Side</span><div class="party-divider-line"></div></div>
+      <div class="party-member reveal" data-party="moh"><div class="party-photo"><span class="party-photo-init">TD</span></div><p class="party-role">Maid of Honor</p><p class="party-name">Taylor Difonzo</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-member reveal" data-party="moh"><div class="party-photo"><span class="party-photo-init">NK</span></div><p class="party-role">Maid of Honor</p><p class="party-name">Nuzhat Kabir</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-member reveal" data-party="bridesmaid"><div class="party-photo"><span class="party-photo-init">HS</span></div><p class="party-role">Bridesmaid</p><p class="party-name">Hannah Shute</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-member reveal" data-party="bridesmaid"><div class="party-photo"><span class="party-photo-init">NQ</span></div><p class="party-role">Bridesmaid</p><p class="party-name">Nina Qin</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-member reveal" data-party="bridesmaid"><div class="party-photo"><span class="party-photo-init">BL</span></div><p class="party-role">Bridesmaid</p><p class="party-name">Brenna Li</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-member reveal" data-party="bridesmaid"><div class="party-photo"><span class="party-photo-init">SB</span></div><p class="party-role">Bridesmaid</p><p class="party-name">Sejal Bhalla</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-divider" style="margin-top:14px"><div class="party-divider-line"></div><span class="party-divider-label">{{ site.data.couple.spouse2.short_name }}'s Side</span><div class="party-divider-line"></div></div>
+      <div class="party-member reveal" data-party="best-man"><div class="party-photo"><span class="party-photo-init">AW</span></div><p class="party-role">Best Man</p><p class="party-name">Allen Wang</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-member reveal" data-party="groomsman"><div class="party-photo"><span class="party-photo-init">MC</span></div><p class="party-role">Groomsman</p><p class="party-name">Matthew Chang</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-member reveal" data-party="groomsman"><div class="party-photo"><span class="party-photo-init">YH</span></div><p class="party-role">Groomsman</p><p class="party-name">Yu Hong Hwang</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-member reveal" data-party="groomsman"><div class="party-photo"><span class="party-photo-init">TY</span></div><p class="party-role">Groomsman</p><p class="party-name">Tim Yu</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-member reveal" data-party="groomsman"><div class="party-photo"><span class="party-photo-init">CF</span></div><p class="party-role">Groomsman</p><p class="party-name">Connor Flanagan</p><p class="party-note">[To be filled in]</p></div>
+      <div class="party-member reveal" data-party="groomsman"><div class="party-photo"><span class="party-photo-init">CM</span></div><p class="party-role">Groomsman</p><p class="party-name">Connor McGettigan</p><p class="party-note">[To be filled in]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SCHEDULE ════ -->
+<span class="section-anchor" id="schedule"></span>
+<section class="page-section tint">
+  <img class="corner-img corner-tr" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+  <div class="section-inner">
+    <p class="section-eyebrow">May 8–9, 2027</p>
+    <h2 class="section-heading">Schedule of events</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+
+    <div class="day-label-row" style="display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;gap:0 48px;max-width:920px;margin:0 auto 12px;">
+      <p class="sched-day-label">Saturday, May 8</p><div></div>
+      <p class="sched-day-label">Saturday, May 8</p><div></div>
+      <p class="sched-day-label">Sunday, May 9</p>
+    </div>
+
+    <div class="schedule-wrap">
+      <div>
+        <p class="sched-col-title">Ceremony &amp; Cocktails</p>
+        <div class="sched-item reveal"><span class="sched-time">4:00 pm</span><div class="sched-dot"></div><div><p class="sched-event">Guests Arrive</p><p class="sched-sub">Doors open</p></div></div>
+        <div class="sched-item reveal"><span class="sched-time">4:30 pm</span><div class="sched-dot"></div><div><p class="sched-event">Ceremony Begins</p><p class="sched-sub">Please be seated by 4:20 pm</p></div></div>
+        <div class="sched-item reveal"><span class="sched-time">5:00 pm</span><div class="sched-dot"></div><div><p class="sched-event">Cocktail Hour</p><p class="sched-sub">Garden terrace, hors d'oeuvres</p></div></div>
+      </div>
+      <div class="schedule-div"></div>
+      <div>
+        <p class="sched-col-title">Reception</p>
+        <div class="sched-item reveal"><span class="sched-time">6:00 pm</span><div class="sched-dot"></div><div><p class="sched-event">Reception Dinner</p><p class="sched-sub">Seated dinner</p></div></div>
+        <div class="sched-item reveal"><span class="sched-time">7:30 pm</span><div class="sched-dot"></div><div><p class="sched-event">First Dance &amp; Toasts</p><p class="sched-sub">Dancing to follow</p></div></div>
+        <div class="sched-item reveal"><span class="sched-time">9:30 pm</span><div class="sched-dot"></div><div><p class="sched-event">Last Dance</p><p class="sched-sub">One final song before we say goodnight</p></div></div>
+        <div class="sched-item reveal"><span class="sched-time">10:00 pm</span><div class="sched-dot"></div><div><p class="sched-event">Venue Closes</p><p class="sched-sub">All guests depart by 10:00 pm</p></div></div>
+      </div>
+      <div class="schedule-div"></div>
+      <div>
+        <p class="sched-col-title">Morning After Brunch</p>
+        <div class="sched-item reveal"><span class="sched-time">10:00 am</span><div class="sched-dot"></div><div><p class="sched-event">Dim sum Begins</p><p class="sched-sub">Come as you are, all are welcome</p></div></div>
+        <div class="sched-item reveal"><span class="sched-time">10:30 am</span><div class="sched-dot"></div><div><p class="sched-event">Food &amp; Drinks</p><p class="sched-sub">[Venue or location TBD]</p></div></div>
+        <div class="sched-item reveal"><span class="sched-time">12:00 pm</span><div class="sched-dot"></div><div><p class="sched-event">Farewell</p><p class="sched-sub">Safe travels, we love you</p></div></div>
+        <p style="font-family:'EB Garamond',serif;font-size:14px;font-style:italic;color:var(--ink-light);margin-top:4px;padding-left:68px;line-height:1.6;">Casual and relaxed</p>
+      </div>
+    </div>
+
+    <div class="dress-code-bar reveal">
+      <div class="dress-code-diamond"></div>
+      <p class="dress-code-text"><strong>Dress code: Formal.</strong> &nbsp;Black tie, floor-length gowns, or formal suits and cocktail attire welcome.</p>
+      <div class="dress-code-diamond"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ TRAVEL ════ -->
+<span class="section-anchor" id="travel"></span>
+<section class="page-section cream travel-section">
+  <img class="corner-img corner-bl" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+  <div class="section-inner">
+    <p class="section-eyebrow">Getting Here</p>
+    <h2 class="section-heading">Travel &amp; stay</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+    <div class="travel-cards">
+      <div class="travel-card reveal">
+        <svg class="travel-card-icon" viewBox="0 0 36 36" fill="none"><path d="M18 4C12.48 4 8 8.48 8 14c0 7.5 10 18 10 18s10-10.5 10-18c0-5.52-4.48-10-10-10zm0 13.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" fill="#B5D4F4" stroke="#1A3A72" stroke-width="0.4"/></svg>
+        <h3 class="travel-card-title">The Venue</h3>
+        <p class="travel-card-body">
+          <strong style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--navy);display:block;margin-bottom:3px;">{{ wedding.location.venue_name }}</strong>
+          <span style="font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.06em;color:var(--gold);display:block;margin-bottom:12px;">{{ wedding.location.address }} · {{ wedding.location.city }}, {{ wedding.location.state }} {{ wedding.location.zip }}</span>
+          Once the private estate of Cator Woolford, these 39 acres in Druid Hills are now home to the Frazer Center, a center supporting children and adults with developmental disabilities. The gardens unfold as a series of outdoor "rooms": a grand ceremony lawn, green meadow, circular courtyard, and the original Italian staircase.
+        </p>
+        <a href="{{ wedding.location.google_maps_url }}" target="_blank" class="travel-card-link">View on maps</a>
+      </div>
+      <div class="travel-card reveal">
+        <svg class="travel-card-icon" viewBox="0 0 36 36" fill="none"><rect x="6" y="12" width="24" height="18" rx="1" fill="#B5D4F4" stroke="#1A3A72" stroke-width="0.4"/><path d="M10 12V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3" stroke="#1A3A72" stroke-width="0.7" fill="none"/><rect x="14" y="20" width="8" height="10" fill="#D4E8F7"/><rect x="9" y="17" width="5" height="4" rx="0.5" fill="#D4E8F7"/><rect x="22" y="17" width="5" height="4" rx="0.5" fill="#D4E8F7"/></svg>
+        <h3 class="travel-card-title">Hotel Block</h3>
+        <p class="travel-card-body">[To be filled in — hotel name, rate, booking code, and block expiration date]</p>
+        <a href="#" class="travel-card-link">Book your room</a>
+      </div>
+      <div class="travel-card reveal">
+        <svg class="travel-card-icon" viewBox="0 0 36 36" fill="none"><path d="M6 18L30 18M6 18L14 10M6 18L14 26" stroke="#1A3A72" stroke-width="1" stroke-linecap="round" fill="none"/><circle cx="26" cy="18" r="5" fill="#B5D4F4" stroke="#1A3A72" stroke-width="0.4"/></svg>
+        <h3 class="travel-card-title">Getting There</h3>
+        <p class="travel-card-body">Free parking is available in the Frazer Center lot at the top of the hill with the gardens a short walk (or golf cart ride) down. Rideshare drop-off works too. We recommend allowing a little extra time on a Saturday evening.</p>
+        <a href="{{ wedding.location.google_maps_url }}" target="_blank" class="travel-card-link">Get directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ GIFTS ════ -->
+<span class="section-anchor" id="registry"></span>
+<section class="page-section">
+  <img class="corner-img corner-tr" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+  <div class="section-inner">
+    <p class="section-eyebrow">Gifts &amp; Giving</p>
+    <h2 class="section-heading">From the heart</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+    <p class="registry-note reveal">We don't have a traditional registry. Your presence at our wedding is truly more than enough. If you'd like to mark the occasion with a gift, we'd be deeply moved by a contribution toward a donation to a cause close to both our hearts or our new life together.</p>
+    <div class="gift-cards">
+      <div class="gift-card reveal">
+        <div class="gift-card-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none"><path d="M13 22S4 16.5 4 10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-9 12-9 12z" fill="#B5D4F4" stroke="#1A3A72" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="gift-card-eyebrow">Give back</p>
+        <h3 class="gift-card-title">A Donation in Our Name</h3>
+        <p class="gift-card-body">If you'd like to mark the occasion with a gift that gives back, a donation to <strong style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--navy);">[Charity Name]</strong> in our honor means as much to us as anything we could unwrap.</p>
+        <a href="#" class="gift-card-btn">Donate in our name</a>
+      </div>
+      <div class="gift-card reveal">
+        <div class="gift-card-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none"><path d="M4 13 Q4 6 13 3 Q22 6 22 13 Q22 20 13 23 Q4 20 4 13Z" fill="#B5D4F4" stroke="#1A3A72" stroke-width="0.8"/><path d="M9 13 Q11 10 13 13 Q15 16 17 13" stroke="#1A3A72" stroke-width="0.7" fill="none" stroke-linecap="round"/><circle cx="13" cy="9" r="1.5" fill="#1A3A72" opacity="0.4"/></svg>
+        </div>
+        <p class="gift-card-eyebrow">The years ahead</p>
+        <h3 class="gift-card-title">Honeymoon &amp; New Chapter</h3>
+        <p class="gift-card-body">In place of a registry, we've set up a small fund for our life together. Whether it goes toward our honeymoon, a corner of a first home, something special for Mel, or a long-postponed dinner, we're so grateful.</p>
+        <a href="#" class="gift-card-btn">Contribute to our future</a>
+      </div>
+    </div>
+    <div class="gift-card-or reveal">
+      <div class="gift-card-or-line"></div>
+      <span class="gift-card-or-text">either way, your generosity means everything</span>
+      <div class="gift-card-or-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ RSVP ════ -->
+<span class="section-anchor" id="rsvp"></span>
+<section class="page-section dark" style="overflow:hidden;">
+  <svg class="corner-svg corner-tl" width="145" height="145" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="rgba(200,169,110,0.2)" stroke-linecap="round" opacity="0.9">
+      <path d="M0 80 Q25 60 50 40 Q70 25 88 12" stroke-width="1"/>
+      <g transform="translate(50,38)"><circle cx="0" cy="0" r="18" fill="rgba(200,169,110,0.08)" stroke-width="0.9" opacity="0.6"/><circle cx="0" cy="0" r="9" fill="rgba(200,169,110,0.12)" stroke-width="0.7" opacity="0.65"/><circle cx="0" cy="0" r="4" fill="rgba(200,169,110,0.2)" opacity="0.5"/><line x1="0" y1="-18" x2="0" y2="-12" stroke-width="0.8" opacity="0.5"/><line x1="12.7" y1="-12.7" x2="8.5" y2="-8.5" stroke-width="0.8" opacity="0.5"/><line x1="18" y1="0" x2="12" y2="0" stroke-width="0.8" opacity="0.5"/><line x1="12.7" y1="12.7" x2="8.5" y2="8.5" stroke-width="0.8" opacity="0.5"/><line x1="0" y1="18" x2="0" y2="12" stroke-width="0.8" opacity="0.5"/><line x1="-12.7" y1="12.7" x2="-8.5" y2="8.5" stroke-width="0.8" opacity="0.5"/><line x1="-18" y1="0" x2="-12" y2="0" stroke-width="0.8" opacity="0.5"/><line x1="-12.7" y1="-12.7" x2="-8.5" y2="-8.5" stroke-width="0.8" opacity="0.5"/></g>
+      <ellipse cx="32" cy="62" rx="12" ry="4.5" transform="rotate(-42 32 62)" fill="rgba(200,169,110,0.1)" stroke-width="0.5" opacity="0.6"/>
+      <ellipse cx="72" cy="55" rx="10" ry="4" transform="rotate(20 72 55)" fill="rgba(200,169,110,0.1)" stroke-width="0.5" opacity="0.55"/>
+    </g>
+  </svg>
+  <svg class="corner-svg corner-br" width="145" height="145" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="rgba(200,169,110,0.2)" stroke-linecap="round" opacity="0.9">
+      <path d="M0 80 Q25 60 50 40 Q70 25 88 12" stroke-width="1"/>
+      <g transform="translate(50,38)"><circle cx="0" cy="0" r="18" fill="rgba(200,169,110,0.08)" stroke-width="0.9" opacity="0.6"/><circle cx="0" cy="0" r="9" fill="rgba(200,169,110,0.12)" stroke-width="0.7" opacity="0.65"/><circle cx="0" cy="0" r="4" fill="rgba(200,169,110,0.2)" opacity="0.5"/><line x1="0" y1="-18" x2="0" y2="-12" stroke-width="0.8" opacity="0.5"/><line x1="18" y1="0" x2="12" y2="0" stroke-width="0.8" opacity="0.5"/><line x1="-18" y1="0" x2="-12" y2="0" stroke-width="0.8" opacity="0.5"/><line x1="0" y1="18" x2="0" y2="12" stroke-width="0.8" opacity="0.5"/></g>
+      <ellipse cx="32" cy="62" rx="12" ry="4.5" transform="rotate(-42 32 62)" fill="rgba(200,169,110,0.1)" stroke-width="0.5" opacity="0.6"/>
+    </g>
+  </svg>
+  <div class="section-inner">
+    <p class="section-eyebrow">RSVP</p>
+    <h2 class="section-heading">Will you join us?</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+    <p class="rsvp-note">Kindly reply by March 1, 2027.<br>We can't wait to celebrate with you.</p>
+    <form class="rsvp-form" id="rsvpForm" onsubmit="submitRSVP(event)">
+      <div class="rsvp-row">
+        <input type="text" placeholder="First name" required>
+        <input type="text" placeholder="Last name" required>
+      </div>
+      <input type="email" placeholder="Email address" required>
+      <select required>
+        <option value="" disabled selected>Will you attend?</option>
+        <option>Joyfully accepts</option>
+        <option>Regretfully declines</option>
+      </select>
+      <select>
+        <option value="" disabled selected>Joining us for brunch Sunday?</option>
+        <option>Yes, see you Sunday!</option>
+        <option>Can't make brunch, sadly</option>
+        <option>Not sure yet</option>
+      </select>
+      <div class="rsvp-row">
+        <select>
+          <option value="" disabled selected>Number of guests</option>
+          <option>1 guest</option><option>2 guests</option><option>3 guests</option>
+        </select>
+        <select>
+          <option value="" disabled selected>Meal preference</option>
+          <option>Fish</option><option>Chicken</option><option>Vegetarian</option>
+        </select>
+      </div>
+      <textarea placeholder="Dietary restrictions or a note for us…"></textarea>
+      <button type="submit" class="rsvp-submit">Send RSVP</button>
+    </form>
+    <div class="rsvp-success" id="rsvpSuccess">Thank you —<br>we'll see you there ✦</div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-ornament">
+    <div class="footer-ornament-line"></div>
+    <div class="footer-ornament-diamond"></div>
+    <div class="footer-ornament-line"></div>
+  </div>
+  <p class="footer-mono">{{ site.data.couple.spouse1.short_name }} &amp; {{ site.data.couple.spouse2.short_name }}</p>
+  <p class="footer-date">May 8, 2027 &nbsp;·&nbsp; {{ wedding.location.city }}, {{ wedding.location.long_state }}</p>
+</footer>
+
+<script>
+/* countdown */
+(function(){
+  const w=new Date('2027-05-08T16:30:00');
+  function tick(){
+    const d=w-new Date();
+    if(d<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='0');return;}
+    document.getElementById('cd-days').textContent=Math.floor(d/86400000);
+    document.getElementById('cd-hours').textContent=Math.floor((d%86400000)/3600000);
+    document.getElementById('cd-mins').textContent=Math.floor((d%3600000)/60000);
+    document.getElementById('cd-secs').textContent=Math.floor((d%60000)/1000);
+  }
+  tick();setInterval(tick,1000);
+})();
+
+/* nav */
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50);
+  highlightNav();
+});
+const sections=['story','party','schedule','travel','registry','rsvp'];
+function highlightNav(){
+  const y=window.scrollY+80;let a='';
+  sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)a=id;});
+  document.querySelectorAll('.nav-links a[data-section]').forEach(a2=>{a2.classList.toggle('active',a2.dataset.section===a);});
+}
+const ham=document.getElementById('hamburger'),drw=document.getElementById('navDrawer');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');drw.classList.toggle('open');});
+function closeDrawer(){ham.classList.remove('open');drw.classList.remove('open');}
+
+/* reveal */
+const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+/* rsvp */
+function submitRSVP(e){e.preventDefault();document.getElementById('rsvpForm').style.display='none';document.getElementById('rsvpSuccess').style.display='block';}
+
+/* wedding party shuffle */
+(function(){
+  function shuffle(arr){
+    for(let i=arr.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [arr[i],arr[j]]=[arr[j],arr[i]];
+    }
+    return arr;
+  }
+  const grid=document.querySelector('.party-grid');
+  if(!grid)return;
+  const mohs=[...grid.querySelectorAll('[data-party="moh"]')];
+  const bridesmaids=[...grid.querySelectorAll('[data-party="bridesmaid"]')];
+  const bestMan=grid.querySelector('[data-party="best-man"]');
+  const groomsmen=[...grid.querySelectorAll('[data-party="groomsman"]')];
+  const dividers=[...grid.querySelectorAll('.party-divider')];
+  shuffle(mohs);
+  shuffle(bridesmaids);
+  shuffle(groomsmen);
+  [dividers[0],...mohs,...bridesmaids,dividers[1],bestMan,...groomsmen].forEach(el=>grid.appendChild(el));
+})();
+
+/* slideshow */
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const dots=document.querySelectorAll('.ss-dot');
+  const wrapper=document.querySelector('.slideshow-wrapper');
+  let cur=0,timer;
+  function goTo(n){
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur=(n+slides.length)%slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+  function startAuto(){timer=setInterval(()=>goTo(cur+1),4000);}
+  function resetAuto(){clearInterval(timer);startAuto();}
+  document.getElementById('ss-prev').addEventListener('click',()=>{goTo(cur-1);resetAuto();});
+  document.getElementById('ss-next').addEventListener('click',()=>{goTo(cur+1);resetAuto();});
+  dots.forEach(d=>d.addEventListener('click',()=>{goTo(+d.dataset.slide);resetAuto();}));
+  wrapper.addEventListener('mouseenter',()=>clearInterval(timer));
+  wrapper.addEventListener('mouseleave',startAuto);
+  startAuto();
+})();
+</script>
+</body>
+</html>

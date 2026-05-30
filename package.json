@@ -9,10 +9,11 @@
   "scripts": {
     "start": "npm run serve:webpack & sleep 3 && npm run serve:jekyll",
     "serve:webpack": "webpack --mode development --watch",
-    "serve:jekyll": "bundle exec jekyll serve -s example --livereload",
+    "serve:jekyll": "bundle exec jekyll serve --livereload",
     "build": "npm run build:webpack && npm run build:jekyll",
     "build:webpack": "webpack --mode production",
     "build:jekyll": "JEKYLL_ENV=production bundle exec jekyll build",
+    "build:encrypt": "npm run build && bash scripts/encrypt-jekyll.sh --config config/encrypted-pages.yml",
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish-gem": "rm jekyll-theme-easy-wedding-*.gem; npm run build && bump patch && gem build jekyll-theme-easy-wedding.gemspec && gem push jekyll-theme-easy-wedding-*.gem",
     "preinstall": "bundle install"

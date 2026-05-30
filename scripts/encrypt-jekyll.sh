@@ -84,6 +84,7 @@ if [ ! -f "$TEMPLATE_FILE" ]; then
     print_error "Template file '$TEMPLATE_FILE' not found!"
     exit 1
 fi
+TEMPLATE_FILE=$(realpath "$TEMPLATE_FILE")
 
 # Check if STATICRYPT_PASSWORD is set in environment
 if [ -n "$STATICRYPT_PASSWORD" ]; then
@@ -179,7 +180,7 @@ for file_path in "${FILE_ARGS[@]}"; do
     pushd "$file_dir" > /dev/null
     
     # StatiCrypt saves to ./encrypted/ with same filename
-    if npx staticrypt "$filename" -t "../../$TEMPLATE_FILE" --remember 14; then
+    if npx staticrypt "$filename" -t "$TEMPLATE_FILE" --remember 14; then
         # Check for encrypted file in the default 'encrypted' directory
         encrypted_file="encrypted/$filename"
         

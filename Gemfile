@@ -16,3 +16,11 @@ gem "jekyll-sass-converter", "~> 2.0"
 
 # For local server
 gem "webrick", "~> 1.8"
+
+# Required for Ruby 3.4+
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+gem "mutex_m"
+gem "ostruct"
+gem "win32ole", platforms: [:mingw, :x64_mingw, :mswin]
