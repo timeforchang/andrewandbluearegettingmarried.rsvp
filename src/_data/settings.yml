@@ -16,8 +16,8 @@ rsvp:
   use_code: true
   code: 1234
   code_md5: 81dc9bdb52d04dc20036dbd8313ed055
-  post_address: https://api.nathanorick.com/rsvp
-  api_key: m7ccqIIa6S8uSBQzbhZzd1rZaoiCXObr1fcx4Wvy
+  post_address: https://script.google.com/macros/s/AKfycbxTgY3Saa8OhrXBKAipTZts5P1KPpJG2xOTHHgOHJ6rCpzKo64Fvb7z5vY7zyyVX8qdYw/exec
+  api_key: unused
   code_location: You can put the code on the back of your RSVP card, or turn off this functionality all together. The code for this sample is 1234
   yes_text: I'll be there
   no_text: I can't make it
