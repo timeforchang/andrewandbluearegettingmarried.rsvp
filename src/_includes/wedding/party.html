@@ -1,0 +1,41 @@
+<!-- ════ WEDDING PARTY ════ -->
+<span class="section-anchor" id="party"></span>
+<section class="page-section">
+  <div class="section-inner">
+    <p class="section-eyebrow">Wedding Party</p>
+    <h2 class="section-heading">The people who got us here</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+    <div class="party-grid">
+      <div class="party-divider"><div class="party-divider-line"></div><span class="party-divider-label">{{ site.data.couple.spouse1.short_name }}'s Side</span><div class="party-divider-line"></div></div>
+      {% for member in site.data.people.her_side %}
+      <div class="party-member reveal" data-party="{{ member.party }}">
+        <div class="party-photo">
+          {% if member.pic %}
+          <img src="{{ "/assets/img/" | append: member.pic | prepend: site.baseurl }}" alt="{{ member.name }}">
+          {% else %}
+          <span class="party-photo-init">{{ member.initials }}</span>
+          {% endif %}
+        </div>
+        <p class="party-role">{{ member.role }}</p>
+        <p class="party-name">{{ member.name }}</p>
+        {% if member.note %}<p class="party-note">{{ member.note }}</p>{% endif %}
+      </div>
+      {% endfor %}
+      <div class="party-divider" style="margin-top:14px"><div class="party-divider-line"></div><span class="party-divider-label">{{ site.data.couple.spouse2.short_name }}'s Side</span><div class="party-divider-line"></div></div>
+      {% for member in site.data.people.his_side %}
+      <div class="party-member reveal" data-party="{{ member.party }}">
+        <div class="party-photo">
+          {% if member.pic %}
+          <img src="{{ "/assets/img/" | append: member.pic | prepend: site.baseurl }}" alt="{{ member.name }}">
+          {% else %}
+          <span class="party-photo-init">{{ member.initials }}</span>
+          {% endif %}
+        </div>
+        <p class="party-role">{{ member.role }}</p>
+        <p class="party-name">{{ member.name }}</p>
+        {% if member.note %}<p class="party-note">{{ member.note }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

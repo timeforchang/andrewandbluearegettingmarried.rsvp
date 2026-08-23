@@ -1,0 +1,82 @@
+<script>
+/* countdown */
+(function(){
+  const w=new Date('{{ site.data.settings.wedding.countdown_target }}');
+  function tick(){
+    const d=w-new Date();
+    if(d<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='0');return;}
+    document.getElementById('cd-days').textContent=Math.floor(d/86400000);
+    document.getElementById('cd-hours').textContent=Math.floor((d%86400000)/3600000);
+    document.getElementById('cd-mins').textContent=Math.floor((d%3600000)/60000);
+    document.getElementById('cd-secs').textContent=Math.floor((d%60000)/1000);
+  }
+  tick();setInterval(tick,1000);
+})();
+
+/* nav */
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50);
+  highlightNav();
+});
+const sections=['story','party','schedule','travel','registry','rsvp'];
+function highlightNav(){
+  const y=window.scrollY+80;let a='';
+  sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.offsetTop<=y)a=id;});
+  document.querySelectorAll('.nav-links a[data-section]').forEach(a2=>{a2.classList.toggle('active',a2.dataset.section===a);});
+}
+const ham=document.getElementById('hamburger'),drw=document.getElementById('navDrawer');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');drw.classList.toggle('open');});
+function closeDrawer(){ham.classList.remove('open');drw.classList.remove('open');}
+
+/* reveal */
+const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+/* rsvp */
+function submitRSVP(e){e.preventDefault();document.getElementById('rsvpForm').style.display='none';document.getElementById('rsvpSuccess').style.display='block';}
+
+/* wedding party shuffle */
+(function(){
+  function shuffle(arr){
+    for(let i=arr.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [arr[i],arr[j]]=[arr[j],arr[i]];
+    }
+    return arr;
+  }
+  const grid=document.querySelector('.party-grid');
+  if(!grid)return;
+  const mohs=[...grid.querySelectorAll('[data-party="moh"]')];
+  const bridesmaids=[...grid.querySelectorAll('[data-party="bridesmaid"]')];
+  const bestMan=grid.querySelector('[data-party="best-man"]');
+  const groomsmen=[...grid.querySelectorAll('[data-party="groomsman"]')];
+  const dividers=[...grid.querySelectorAll('.party-divider')];
+  shuffle(mohs);
+  shuffle(bridesmaids);
+  shuffle(groomsmen);
+  [dividers[0],...mohs,...bridesmaids,dividers[1],bestMan,...groomsmen].forEach(el=>grid.appendChild(el));
+})();
+
+/* slideshow */
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const dots=document.querySelectorAll('.ss-dot');
+  const wrapper=document.querySelector('.slideshow-wrapper');
+  let cur=0,timer;
+  function goTo(n){
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur=(n+slides.length)%slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+  function startAuto(){timer=setInterval(()=>goTo(cur+1),4000);}
+  function resetAuto(){clearInterval(timer);startAuto();}
+  document.getElementById('ss-prev').addEventListener('click',()=>{goTo(cur-1);resetAuto();});
+  document.getElementById('ss-next').addEventListener('click',()=>{goTo(cur+1);resetAuto();});
+  dots.forEach(d=>d.addEventListener('click',()=>{goTo(+d.dataset.slide);resetAuto();}));
+  wrapper.addEventListener('mouseenter',()=>clearInterval(timer));
+  wrapper.addEventListener('mouseleave',startAuto);
+  startAuto();
+})();
+</script>

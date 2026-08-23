@@ -1,0 +1,48 @@
+<!-- ════ OUR STORY ════ -->
+<span class="section-anchor" id="story"></span>
+<section class="page-section cream" style="padding-bottom:64px;">
+  <img class="corner-img corner-tl" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+  <img class="corner-img corner-tr" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+  <div class="section-inner">
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="section-heading">{{ site.data.settings.wedding.story_heading }}</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+    <div class="story-layout">
+
+      <div class="story-media reveal">
+        <div class="story-slideshow">
+          {% assign photos = site.static_files | where: "image", true %}
+          <div class="slideshow-wrapper">
+            <div class="slideshow-track">
+              {% for photo in photos %}
+              {% assign meta = site.data.photos | where: "file", photo.name | first %}
+              <div class="slide{% if forloop.first %} active{% endif %}">
+                <img class="slide-img" src="{{ photo.path | prepend: site.baseurl }}" alt="Photo {{ forloop.index }}"{% if meta.position %} style="object-position:{{ meta.position }}"{% endif %}>
+                {% if meta %}<div class="slide-caption">{{ meta.place }} · {{ meta.year }}</div>{% endif %}
+              </div>
+              {% endfor %}
+            </div>
+            <button class="ss-btn ss-prev" id="ss-prev" aria-label="Previous photo">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="ss-btn ss-next" id="ss-next" aria-label="Next photo">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="ss-dots">
+            {% for photo in photos %}
+            <button class="ss-dot{% if forloop.first %} active{% endif %}" data-slide="{{ forloop.index0 }}" aria-label="Photo {{ forloop.index }}"></button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="story-text-col reveal">
+        <div class="story-body">
+          <p class="story-drop-cap">{{ site.data.settings.wedding.story_text }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

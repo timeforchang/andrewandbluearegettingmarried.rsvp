@@ -13,37 +13,69 @@ kids: []
   #   name: Oliver
   #   role: Ring Bearer
   #   position: top
-her_side: []
-  # - name: Victoria Cordina
-  #   pic: vicky.jpg
-  #   role: Bridesmaid
-  #   description: Rebecca's Sister
-  # - name: Sarah Orick
-  #   pic: sarah.jpg
-  #   role: Bridesmaid
-  #   description: Rebecca's Best Friend
-  # - name: Jamee Cox
-  #   pic: jamee.jpg
-  #   role: Bridesmaid
-  #   description: Rebecca's Friend
-  # - name: Kaitlyn Rutherford
-  #   pic: kaitlyn.jpg
-  #   role: Bridesmaid
-  #   description: Ryan's Sister
-his_side: []
-  # - name: Nathan Orick
-  #   pic: nathan.jpg
-  #   role: Best Man
-  #   description: Ryan's Cousin
-  # - name: Garrett Orick
-  #   pic: garrett.jpg
-  #   role: Groomsman
-  #   description: Ryan's Cousin
-  # - name: Logan Byrge
-  #   pic: byrge.jpg
-  #   role: Groomsman
-  #   description: Ryan's High School Friend
-  # - name: Logan Ivey
-  #   pic: ivey.jpg
-  #   role: Groomsman
-  #   description: Ryan's High School Friend
+
+# Wedding party — Blue's side
+her_side:
+  - name: Taylor Difonzo
+    initials: TD
+    role: Maid of Honor
+    party: moh
+    note: "[To be filled in]"
+  - name: Nuzhat Kabir
+    initials: NK
+    role: Maid of Honor
+    party: moh
+    note: "[To be filled in]"
+  - name: Hannah Shute
+    initials: HS
+    role: Bridesmaid
+    party: bridesmaid
+    note: "[To be filled in]"
+  - name: Nina Qin
+    initials: NQ
+    role: Bridesmaid
+    party: bridesmaid
+    note: "[To be filled in]"
+  - name: Brenna Li
+    initials: BL
+    role: Bridesmaid
+    party: bridesmaid
+    note: "[To be filled in]"
+  - name: Sejal Bhalla
+    initials: SB
+    role: Bridesmaid
+    party: bridesmaid
+    note: "[To be filled in]"
+
+# Wedding party — Andrew's side
+his_side:
+  - name: Allen Wang
+    initials: AW
+    role: Best Man
+    party: best-man
+    note: "[To be filled in]"
+  - name: Matthew Chang
+    initials: MC
+    role: Groomsman
+    party: groomsman
+    note: "[To be filled in]"
+  - name: Yu Hong Hwang
+    initials: YH
+    role: Groomsman
+    party: groomsman
+    note: "[To be filled in]"
+  - name: Tim Yu
+    initials: TY
+    role: Groomsman
+    party: groomsman
+    note: "[To be filled in]"
+  - name: Connor Flanagan
+    initials: CF
+    role: Groomsman
+    party: groomsman
+    note: "[To be filled in]"
+  - name: Connor McGettigan
+    initials: CM
+    role: Groomsman
+    party: groomsman
+    note: "[To be filled in]"

@@ -1,0 +1,56 @@
+<!-- ════ RSVP ════ -->
+<span class="section-anchor" id="rsvp"></span>
+<section class="page-section dark" style="overflow:hidden;">
+  <svg class="corner-svg corner-tl" width="145" height="145" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="rgba(200,169,110,0.2)" stroke-linecap="round" opacity="0.9">
+      <path d="M0 80 Q25 60 50 40 Q70 25 88 12" stroke-width="1"/>
+      <g transform="translate(50,38)"><circle cx="0" cy="0" r="18" fill="rgba(200,169,110,0.08)" stroke-width="0.9" opacity="0.6"/><circle cx="0" cy="0" r="9" fill="rgba(200,169,110,0.12)" stroke-width="0.7" opacity="0.65"/><circle cx="0" cy="0" r="4" fill="rgba(200,169,110,0.2)" opacity="0.5"/><line x1="0" y1="-18" x2="0" y2="-12" stroke-width="0.8" opacity="0.5"/><line x1="12.7" y1="-12.7" x2="8.5" y2="-8.5" stroke-width="0.8" opacity="0.5"/><line x1="18" y1="0" x2="12" y2="0" stroke-width="0.8" opacity="0.5"/><line x1="12.7" y1="12.7" x2="8.5" y2="8.5" stroke-width="0.8" opacity="0.5"/><line x1="0" y1="18" x2="0" y2="12" stroke-width="0.8" opacity="0.5"/><line x1="-12.7" y1="12.7" x2="-8.5" y2="8.5" stroke-width="0.8" opacity="0.5"/><line x1="-18" y1="0" x2="-12" y2="0" stroke-width="0.8" opacity="0.5"/><line x1="-12.7" y1="-12.7" x2="-8.5" y2="-8.5" stroke-width="0.8" opacity="0.5"/></g>
+      <ellipse cx="32" cy="62" rx="12" ry="4.5" transform="rotate(-42 32 62)" fill="rgba(200,169,110,0.1)" stroke-width="0.5" opacity="0.6"/>
+      <ellipse cx="72" cy="55" rx="10" ry="4" transform="rotate(20 72 55)" fill="rgba(200,169,110,0.1)" stroke-width="0.5" opacity="0.55"/>
+    </g>
+  </svg>
+  <svg class="corner-svg corner-br" width="145" height="145" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="rgba(200,169,110,0.2)" stroke-linecap="round" opacity="0.9">
+      <path d="M0 80 Q25 60 50 40 Q70 25 88 12" stroke-width="1"/>
+      <g transform="translate(50,38)"><circle cx="0" cy="0" r="18" fill="rgba(200,169,110,0.08)" stroke-width="0.9" opacity="0.6"/><circle cx="0" cy="0" r="9" fill="rgba(200,169,110,0.12)" stroke-width="0.7" opacity="0.65"/><circle cx="0" cy="0" r="4" fill="rgba(200,169,110,0.2)" opacity="0.5"/><line x1="0" y1="-18" x2="0" y2="-12" stroke-width="0.8" opacity="0.5"/><line x1="18" y1="0" x2="12" y2="0" stroke-width="0.8" opacity="0.5"/><line x1="-18" y1="0" x2="-12" y2="0" stroke-width="0.8" opacity="0.5"/><line x1="0" y1="18" x2="0" y2="12" stroke-width="0.8" opacity="0.5"/></g>
+      <ellipse cx="32" cy="62" rx="12" ry="4.5" transform="rotate(-42 32 62)" fill="rgba(200,169,110,0.1)" stroke-width="0.5" opacity="0.6"/>
+    </g>
+  </svg>
+  <div class="section-inner">
+    <p class="section-eyebrow">RSVP</p>
+    <h2 class="section-heading">Will you join us?</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+    <p class="rsvp-note">Kindly reply by {{ site.data.settings.wedding.rsvp_deadline }}.<br>We can't wait to celebrate with you.</p>
+    <form class="rsvp-form" id="rsvpForm" onsubmit="submitRSVP(event)">
+      <div class="rsvp-row">
+        <input type="text" placeholder="First name" required>
+        <input type="text" placeholder="Last name" required>
+      </div>
+      <input type="email" placeholder="Email address" required>
+      <select required>
+        <option value="" disabled selected>Will you attend?</option>
+        <option>Joyfully accepts</option>
+        <option>Regretfully declines</option>
+      </select>
+      <select>
+        <option value="" disabled selected>Joining us for brunch Sunday?</option>
+        <option>Yes, see you Sunday!</option>
+        <option>Can't make brunch, sadly</option>
+        <option>Not sure yet</option>
+      </select>
+      <div class="rsvp-row">
+        <select>
+          <option value="" disabled selected>Number of guests</option>
+          <option>1 guest</option><option>2 guests</option><option>3 guests</option>
+        </select>
+        <select>
+          <option value="" disabled selected>Meal preference</option>
+          <option>Fish</option><option>Chicken</option><option>Vegetarian</option>
+        </select>
+      </div>
+      <textarea placeholder="Dietary restrictions or a note for us…"></textarea>
+      <button type="submit" class="rsvp-submit">Send RSVP</button>
+    </form>
+    <div class="rsvp-success" id="rsvpSuccess">Thank you —<br>we'll see you there ✦</div>
+  </div>
+</section>

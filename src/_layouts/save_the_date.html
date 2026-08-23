@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Save the Date | {{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="{{ "/assets/img/favicon.png?v=1.0" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/assets/css/styles.css" | prepend: site.baseurl }}">
+    <link href='https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap' rel='stylesheet'>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            background: url('{{ "/assets/img/porcelain-blue.jpg" | prepend: site.baseurl }}') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-color);
+            font-family: 'Cardo', serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 0;
+        }
+        .std-card {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Invitation card with classic double-border */
+        .std-card {
+            background: #fff;
+            width: 100%;
+            max-width: 520px;
+            padding: 3.5rem 3rem;
+            border: 1px solid #bbb5ad;
+            outline: 6px solid #fff;
+            box-shadow: 0 0 0 7px #bbb5ad, 0 8px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+        }
+
+        /* Language toggle */
+        .std-lang-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            display: flex;
+            gap: 0;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+        }
+        .std-lang-btn {
+            background: none;
+            border: 1px solid #bbb5ad;
+            color: #999;
+            padding: 0.25rem 0.55rem;
+            cursor: pointer;
+            transition: all 0.15s;
+            font-family: inherit;
+            font-size: inherit;
+            letter-spacing: inherit;
+        }
+        .std-lang-btn:first-child { border-right: none; border-radius: 2px 0 0 2px; }
+        .std-lang-btn:last-child  { border-radius: 0 2px 2px 0; }
+        .std-lang-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Header */
+        .std-eyebrow {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 200;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            margin: 0 0 1.25rem;
+        }
+        .std-names {
+            font-family: 'Cardo', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            margin: 0;
+            line-height: 1.1;
+            color: #1a1a1a;
+        }
+        .std-ampersand {
+            font-style: italic;
+            color: var(--primary-color);
+        }
+        .std-date-block {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 200;
+            letter-spacing: 0.18em;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #555;
+            margin: 1.25rem 0 0.3rem;
+        }
+        .std-location {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 200;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #888;
+            margin: 0 0 1.75rem;
+        }
+
+        /* Ornamental divider */
+        .std-divider {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 0 auto 1.75rem;
+            width: 80%;
+            color: #bbb5ad;
+        }
+        .std-divider::before,
+        .std-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #bbb5ad;
+        }
+        .std-divider-gem {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+        }
+
+        .std-form-intro {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        /* Form */
+        .std-form { text-align: left; }
+
+        .std-field-label {
+            display: block;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #999;
+            margin: 1.25rem 0 0.4rem;
+        }
+        .std-field-label:first-of-type { margin-top: 0; }
+
+        .std-input-row { display: flex; gap: 0.6rem; }
+
+        .std-input {
+            display: block;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #d0cbc5;
+            padding: 0.55rem 0.25rem;
+            font-family: 'Cardo', serif;
+            font-size: 1rem;
+            color: #1a1a1a;
+            background: transparent;
+            outline: none;
+            transition: border-color 0.2s;
+            margin-bottom: 0.6rem;
+        }
+        .std-input:focus { border-bottom-color: var(--primary-color); }
+        .std-input::placeholder { color: #bbb; }
+
+        .std-attendance-label {
+            display: block;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #999;
+            margin: 1.25rem 0 0.6rem;
+        }
+        .std-radio-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.75rem;
+        }
+        .std-radio-option { flex: 1; }
+        .std-radio-option input[type="radio"] { display: none; }
+        .std-radio-option label {
+            display: block;
+            text-align: center;
+            padding: 0.6rem 0.4rem;
+            border: 1px solid #d0cbc5;
+            border-radius: 2px;
+            cursor: pointer;
+            font-family: 'Cardo', serif;
+            font-size: 0.88rem;
+            color: #555;
+            background: #fafaf8;
+            transition: all 0.15s;
+        }
+        .std-radio-option input[type="radio"]:checked + label {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .std-submit {
+            display: block;
+            width: 100%;
+            padding: 0.9rem;
+            margin-top: 0.25rem;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.25em;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .std-submit:hover  { background: var(--primary-color-darker); }
+        .std-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+
+        .std-alert {
+            margin-top: 1rem;
+            padding: 0.85rem 1rem;
+            font-size: 0.9rem;
+            border-radius: 2px;
+            text-align: center;
+            display: none;
+        }
+        .std-alert.success {
+            display: block;
+            background: #eef4ee;
+            color: #2e6b2e;
+            border: 1px solid #c2d9c2;
+        }
+        .std-alert.error {
+            display: block;
+            background: #fdf0f0;
+            color: #8b2020;
+            border: 1px solid #e8c4c4;
+        }
+
+        @media (max-width: 560px) {
+            .std-card { padding: 2.5rem 1.5rem; }
+            .std-names { font-size: 2.2rem; }
+            .std-input-row { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="std-card">
+        {{ content }}
+    </div>
+</body>
+</html>

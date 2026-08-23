@@ -1,0 +1,43 @@
+<!-- ════ SCHEDULE ════ -->
+<span class="section-anchor" id="schedule"></span>
+<section class="page-section tint">
+  <img class="corner-img corner-tr" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+  <div class="section-inner">
+    <p class="section-eyebrow">{{ site.data.settings.wedding.schedule_eyebrow }}</p>
+    <h2 class="section-heading">Schedule of events</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+
+    <div class="day-label-row">
+      {% for column in site.data.schedule.columns %}
+      <p class="sched-day-label">{{ column.day }}</p>
+      {% unless forloop.last %}<div></div>{% endunless %}
+      {% endfor %}
+    </div>
+
+    <div class="schedule-wrap">
+      {% for column in site.data.schedule.columns %}
+      <div>
+        <p class="sched-col-title">{{ column.title }}</p>
+        {% for item in column.items %}
+        <div class="sched-item reveal">
+          <span class="sched-time">{{ item.time }}</span>
+          <div class="sched-dot"></div>
+          <div>
+            <p class="sched-event">{{ item.event }}</p>
+            <p class="sched-sub">{{ item.sub }}</p>
+          </div>
+        </div>
+        {% endfor %}
+        {% if column.footnote %}<p class="sched-footnote">{{ column.footnote }}</p>{% endif %}
+      </div>
+      {% unless forloop.last %}<div class="schedule-div"></div>{% endunless %}
+      {% endfor %}
+    </div>
+
+    <div class="dress-code-bar reveal">
+      <div class="dress-code-diamond"></div>
+      <p class="dress-code-text"><strong>Dress code: {{ site.data.settings.wedding.dress_code }}.</strong> &nbsp;{{ site.data.settings.wedding.dress_code_detail }}</p>
+      <div class="dress-code-diamond"></div>
+    </div>
+  </div>
+</section>

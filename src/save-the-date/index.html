@@ -1,0 +1,272 @@
+---
+layout: save_the_date
+title: Save the Date
+# Google Form's "formResponse" action URL (from the pre-filled link, everything before the "?")
+std_form_action: https://docs.google.com/forms/d/e/1FAIpQLSdYgVhBh17rx8tJBrL-TJqP1T6CZwmlDvjrnOqOS277CXtS7A/formResponse
+---
+
+<div class="std-lang-toggle" role="group" aria-label="Language">
+  <button class="std-lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+  <button class="std-lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+</div>
+
+<p class="std-eyebrow" data-i18n="eyebrow">Save the Date</p>
+<h1 class="std-names">
+  {{ site.data.couple.spouse1.short_name }}
+  <span class="std-ampersand">&amp;</span>
+  {{ site.data.couple.spouse2.short_name }}
+</h1>
+
+{% assign main_event = site.data.events | where: "main_event", true | first %}
+{% if main_event %}
+  <p class="std-date-block">
+    <span data-i18n-date-en="{{ main_event.date | date: "%B %-d, %Y" }}"
+          data-i18n-date-zh="{{ main_event.date | date: "%Y年%-m月%-d日" }}">
+      {{ main_event.date | date: "%B %-d, %Y" }}
+    </span>
+  </p>
+  <p class="std-location">{{ main_event.location.venue_name }} &middot; {{ main_event.location.city }}, {{ main_event.location.state }}</p>
+{% endif %}
+
+<div class="std-divider"><span class="std-divider-gem">✦ ✦ ✦</span></div>
+
+<p class="std-form-intro" data-i18n="formIntro">
+  We'd love to send you a formal invitation. Please share your details below!
+</p>
+
+<form id="std-form" class="std-form" novalidate>
+
+  <span class="std-field-label" data-i18n="labelNames">Your Name(s)</span>
+  <input class="std-input" type="text" name="name1"
+    placeholder="Your Name"
+    data-i18n-placeholder="placeholderName1"
+    required autocomplete="name">
+  <input class="std-input" type="text" name="name2"
+    placeholder="Plus-one / Partner (optional)"
+    data-i18n-placeholder="placeholderName2"
+    autocomplete="off">
+
+  <span class="std-field-label" data-i18n="labelAddress">Mailing Address</span>
+  <input class="std-input" type="text" name="address_street"
+    placeholder="Street Address"
+    data-i18n-placeholder="placeholderStreet"
+    required autocomplete="street-address">
+  <div class="std-input-row">
+    <input class="std-input" type="text" name="address_city"
+      placeholder="City"
+      data-i18n-placeholder="placeholderCity"
+      required autocomplete="address-level2">
+    <input class="std-input" type="text" name="address_state"
+      placeholder="State / Province"
+      data-i18n-placeholder="placeholderState"
+      required autocomplete="address-level1">
+  </div>
+  <div class="std-input-row">
+    <input class="std-input" type="text" name="address_zip"
+      placeholder="ZIP / Postal Code"
+      data-i18n-placeholder="placeholderZip"
+      required autocomplete="postal-code">
+    <input class="std-input" type="text" name="address_country"
+      placeholder="Country"
+      data-i18n-placeholder="placeholderCountry"
+      required autocomplete="country-name">
+  </div>
+
+  <span class="std-field-label" data-i18n="labelEmail">Best Email to Contact</span>
+  <input class="std-input" type="email" name="email"
+    placeholder="your@email.com"
+    data-i18n-placeholder="placeholderEmail"
+    required autocomplete="email">
+
+  <span class="std-attendance-label" data-i18n="labelAttendance">Will you be joining us?</span>
+  <div class="std-radio-group">
+    <div class="std-radio-option">
+      <input type="radio" name="attendance" id="att-yes" value="Yes, I will be there!">
+      <label for="att-yes" data-i18n="attYes">Yes, I will be there!</label>
+    </div>
+    <div class="std-radio-option">
+      <input type="radio" name="attendance" id="att-maybe" value="Not sure yet">
+      <label for="att-maybe" data-i18n="attMaybe">Not sure yet</label>
+    </div>
+    <div class="std-radio-option">
+      <input type="radio" name="attendance" id="att-no" value="Unfortunately, I will not be able to make it.">
+      <label for="att-no" data-i18n="attNo">Unfortunately, I will not be able to make it.</label>
+    </div>
+  </div>
+
+  <button type="submit" class="std-submit" id="std-submit" data-i18n="submit">
+    Send My Details
+  </button>
+  <div class="std-alert" id="std-alert"></div>
+</form>
+
+<script>
+(function () {
+  var FORM_ACTION = "{{ page.std_form_action }}";
+  var currentLang = 'en';
+
+  // Google Form entry IDs — from "Get pre-filled link" on the form (see form-encoded
+  // query params after "?usp=pp_url"). Replace each with the real entry.NNNNNNNNN id.
+  var ENTRY = {
+    name1:           "1378980286",
+    name2:           "319294816",
+    address_street:  "1873111602",
+    address_city:    "1725470680",
+    address_state:   "396956166",
+    address_zip:     "1246941548",
+    address_country: "909318445",
+    email:           "502988291",
+    attendance:      "2112130204"
+  };
+
+  var T = {
+    en: {
+      eyebrow:          "Save the Date",
+      formIntro:        "We'd love to send you a formal invitation. Please share your details below!",
+      labelNames:       "Your Name(s)",
+      placeholderName1: "Your Name",
+      placeholderName2: "Plus-one / Partner (optional)",
+      labelAddress:     "Mailing Address",
+      placeholderStreet:"Street Address",
+      placeholderCity:  "City",
+      placeholderState: "State / Province",
+      placeholderZip:   "ZIP / Postal Code",
+      placeholderCountry:"Country",
+      labelEmail:       "Best Email to Contact",
+      placeholderEmail: "your@email.com",
+      labelAttendance:  "Will you be joining us?",
+      attYes:           "Yes, I will be there!",
+      attMaybe:         "Not sure yet",
+      attNo:            "Unfortunately, I will not be able to make it.",
+      submit:           "Send My Details",
+      submitting:       "Sending…",
+      successMsg:       "Thank you! We’ll be in touch with more details soon. ♥",
+      errorEmpty:       "Please fill out all required fields and select your attendance.",
+      errorNetwork:     "Something went wrong — please try again or email us directly."
+    },
+    zh: {
+      eyebrow:          "婚礼预告",
+      formIntro:        "我们诚挚地邀请您出席我们的婚礼！请填写以下信息，以便我们寄送正式请柬。",
+      labelNames:       "姓名",
+      placeholderName1: "您的姓名",
+      placeholderName2: "同伴姓名（选填）",
+      labelAddress:     "邮寄地址",
+      placeholderStreet:"街道地址",
+      placeholderCity:  "城市",
+      placeholderState: "州 / 省",
+      placeholderZip:   "邮政编码",
+      placeholderCountry:"国家",
+      labelEmail:       "最佳联系邮箱",
+      placeholderEmail: "您的邮箱",
+      labelAttendance:  "您会加入我们吗？",
+      attYes:           "是的，我会到场！",
+      attMaybe:         "尚不确定",
+      attNo:            "很遗憾，我无法出席。",
+      submit:           "提交信息",
+      submitting:       "提交中…",
+      successMsg:       "感谢您的回复！我们将尽快与您联系。♥",
+      errorEmpty:       "请填写所有必填项并选择出席情况。",
+      errorNetwork:     "出现了一些问题，请再试一次或直接发邮件给我们。"
+    }
+  };
+
+  window.setLang = function (lang) {
+    currentLang = lang;
+    var t = T[lang];
+
+    // toggle button states
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+
+    // update text content
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+
+    // update placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (t[key] !== undefined) el.placeholder = t[key];
+    });
+
+    // update date format
+    var dateEl = document.querySelector('[data-i18n-date-en]');
+    if (dateEl) {
+      dateEl.textContent = lang === 'zh'
+        ? dateEl.getAttribute('data-i18n-date-zh')
+        : dateEl.getAttribute('data-i18n-date-en');
+    }
+
+    // update submit button if not disabled mid-submit
+    var btn = document.getElementById('std-submit');
+    if (!btn.disabled) btn.textContent = t.submit;
+
+    document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-Hans' : 'en');
+  };
+
+  // Form submission
+  document.getElementById('std-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = e.target;
+    var btn  = document.getElementById('std-submit');
+    var alertEl = document.getElementById('std-alert');
+    var t = T[currentLang];
+
+    var name1      = form.name1.value.trim();
+    var street     = form.address_street.value.trim();
+    var city       = form.address_city.value.trim();
+    var state      = form.address_state.value.trim();
+    var zip        = form.address_zip.value.trim();
+    var country    = form.address_country.value.trim();
+    var email      = form.email.value.trim();
+    var attendance = form.attendance.value;
+
+    if (!name1 || !street || !city || !state || !zip || !country || !email || !attendance) {
+      alertEl.className = 'std-alert error';
+      alertEl.textContent = t.errorEmpty;
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = t.submitting;
+    alertEl.className = 'std-alert';
+
+    var values = {
+      name1:           name1,
+      name2:           form.name2.value.trim(),
+      address_street:  street,
+      address_city:    city,
+      address_state:   state,
+      address_zip:     zip,
+      address_country: country,
+      email:           email,
+      attendance:      attendance
+    };
+
+    var body = new URLSearchParams();
+    Object.keys(values).forEach(function (key) {
+      body.append('entry.' + ENTRY[key], values[key]);
+    });
+
+    fetch(FORM_ACTION, {
+      method:  'POST',
+      mode:    'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body:    body
+    })
+    .then(function () {
+      alertEl.className = 'std-alert success';
+      alertEl.textContent = t.successMsg;
+      alertEl.style.display = 'block';
+      form.style.display = 'none';
+    })
+    .catch(function () {
+      alertEl.className = 'std-alert error';
+      alertEl.textContent = t.errorNetwork;
+      btn.disabled = false;
+      btn.textContent = t.submit;
+    });
+  });
+})();
+</script>

@@ -1,0 +1,10 @@
+- anchor: story
+  label: Our Story
+- anchor: party
+  label: Wedding Party
+- anchor: schedule
+  label: Schedule
+- anchor: travel
+  label: Travel
+- anchor: registry
+  label: Gifts

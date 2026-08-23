@@ -1,0 +1,36 @@
+<!-- ════ GIFTS ════ -->
+<span class="section-anchor" id="registry"></span>
+<section class="page-section">
+  <img class="corner-img corner-tr" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+  <div class="section-inner">
+    <p class="section-eyebrow">Gifts &amp; Giving</p>
+    <h2 class="section-heading">From the heart</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+    <p class="registry-note reveal">{{ site.data.settings.wedding.registry_note }}</p>
+    <div class="gift-cards">
+      <div class="gift-card reveal">
+        <div class="gift-card-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none"><path d="M13 22S4 16.5 4 10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-9 12-9 12z" fill="#B5D4F4" stroke="#1A3A72" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <p class="gift-card-eyebrow">Give back</p>
+        <h3 class="gift-card-title">A Donation in Our Name</h3>
+        <p class="gift-card-body">If you'd like to mark the occasion with a gift that gives back, a donation to <strong>{{ site.data.settings.wedding.charity_name }}</strong> in our honor means as much to us as anything we could unwrap.</p>
+        <a href="{{ site.data.settings.wedding.charity_link | default: '#' }}" class="gift-card-btn">Donate in our name</a>
+      </div>
+      <div class="gift-card reveal">
+        <div class="gift-card-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none"><path d="M4 13 Q4 6 13 3 Q22 6 22 13 Q22 20 13 23 Q4 20 4 13Z" fill="#B5D4F4" stroke="#1A3A72" stroke-width="0.8"/><path d="M9 13 Q11 10 13 13 Q15 16 17 13" stroke="#1A3A72" stroke-width="0.7" fill="none" stroke-linecap="round"/><circle cx="13" cy="9" r="1.5" fill="#1A3A72" opacity="0.4"/></svg>
+        </div>
+        <p class="gift-card-eyebrow">The years ahead</p>
+        <h3 class="gift-card-title">Honeymoon &amp; New Chapter</h3>
+        <p class="gift-card-body">{{ site.data.settings.wedding.honeymoon_fund_description }}</p>
+        <a href="{{ site.data.settings.wedding.honeymoon_fund_link | default: '#' }}" class="gift-card-btn">Contribute to our future</a>
+      </div>
+    </div>
+    <div class="gift-card-or reveal">
+      <div class="gift-card-or-line"></div>
+      <span class="gift-card-or-text">either way, your generosity means everything</span>
+      <div class="gift-card-or-line"></div>
+    </div>
+  </div>
+</section>

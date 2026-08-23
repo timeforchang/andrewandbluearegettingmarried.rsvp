@@ -35,9 +35,48 @@ rsvp:
   leave_a_message_text: Leave a message for the bride and groom.
 
 people:
-  families_header: Our Families 
+  families_header: Our Families
   families_text: We would be nothing if it wasn't for the love and support of our wonderful parents and siblings.
   kids_header: Little Ones
   kids_text: We're so lucky to have our sweet puppies help us celebrate the big day.
   wedding_party_header: Wedding Party
-  
+
+# Content for the src/_layouts/wedding.html one-page layout
+wedding:
+  kicker: "Requesting the pleasure of your company"
+  date_display: "Saturday, the Eighth of May, 2027"
+  countdown_target: "2027-05-08T16:30:00"
+  dress_code: "Formal"
+  dress_code_detail: "Black tie, floor-length gowns, or formal suits and cocktail attire welcome."
+  rsvp_cta: "Kindly RSVP"
+  rsvp_deadline: "March 1, 2027"
+  footer_date: "May 8, 2027"
+
+  story_heading: "How it began"
+  story_text: "[To be filled in — our story goes here]"
+
+  schedule_eyebrow: "May 8–9, 2027"
+
+  venue_description: >-
+    Once the private estate of Cator Woolford, these 39 acres in Druid Hills are now home to the
+    Frazer Center, a center supporting children and adults with developmental disabilities. The
+    gardens unfold as a series of outdoor "rooms": a grand ceremony lawn, green meadow, circular
+    courtyard, and the original Italian staircase.
+  hotel_description: "[To be filled in — hotel name, rate, booking code, and block expiration date]"
+  hotel_link: "#"
+  getting_there_description: >-
+    Free parking is available in the Frazer Center lot at the top of the hill with the gardens a
+    short walk (or golf cart ride) down. Rideshare drop-off works too. We recommend allowing a
+    little extra time on a Saturday evening.
+
+  registry_note: >-
+    We don't have a traditional registry. Your presence at our wedding is truly more than enough.
+    If you'd like to mark the occasion with a gift, we'd be deeply moved by a contribution toward
+    a donation to a cause close to both our hearts or our new life together.
+  charity_name: "[Charity Name]"
+  charity_link: "#"
+  honeymoon_fund_description: >-
+    In place of a registry, we've set up a small fund for our life together. Whether it goes
+    toward our honeymoon, a corner of a first home, something special for Mel, or a
+    long-postponed dinner, we're so grateful.
+  honeymoon_fund_link: "#"

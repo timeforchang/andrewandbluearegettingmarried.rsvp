@@ -1,0 +1,34 @@
+<!-- ════ TRAVEL ════ -->
+<span class="section-anchor" id="travel"></span>
+<section class="page-section cream travel-section">
+  <img class="corner-img corner-bl" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+  <div class="section-inner">
+    <p class="section-eyebrow">Getting Here</p>
+    <h2 class="section-heading">Travel &amp; stay</h2>
+    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
+    <div class="travel-cards">
+      <div class="travel-card reveal">
+        <svg class="travel-card-icon" viewBox="0 0 36 36" fill="none"><path d="M18 4C12.48 4 8 8.48 8 14c0 7.5 10 18 10 18s10-10.5 10-18c0-5.52-4.48-10-10-10zm0 13.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" fill="#B5D4F4" stroke="#1A3A72" stroke-width="0.4"/></svg>
+        <h3 class="travel-card-title">The Venue</h3>
+        <p class="travel-card-body">
+          <strong class="travel-card-body-name">{{ wedding.location.venue_name }}</strong>
+          <span class="travel-card-body-addr">{{ wedding.location.address }} · {{ wedding.location.city }}, {{ wedding.location.state }} {{ wedding.location.zip }}</span>
+          {{ site.data.settings.wedding.venue_description }}
+        </p>
+        <a href="{{ wedding.location.google_maps_url }}" target="_blank" class="travel-card-link">View on maps</a>
+      </div>
+      <div class="travel-card reveal">
+        <svg class="travel-card-icon" viewBox="0 0 36 36" fill="none"><rect x="6" y="12" width="24" height="18" rx="1" fill="#B5D4F4" stroke="#1A3A72" stroke-width="0.4"/><path d="M10 12V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3" stroke="#1A3A72" stroke-width="0.7" fill="none"/><rect x="14" y="20" width="8" height="10" fill="#D4E8F7"/><rect x="9" y="17" width="5" height="4" rx="0.5" fill="#D4E8F7"/><rect x="22" y="17" width="5" height="4" rx="0.5" fill="#D4E8F7"/></svg>
+        <h3 class="travel-card-title">Hotel Block</h3>
+        <p class="travel-card-body">{{ site.data.settings.wedding.hotel_description }}</p>
+        <a href="{{ site.data.settings.wedding.hotel_link | default: '#' }}" class="travel-card-link">Book your room</a>
+      </div>
+      <div class="travel-card reveal">
+        <svg class="travel-card-icon" viewBox="0 0 36 36" fill="none"><path d="M6 18L30 18M6 18L14 10M6 18L14 26" stroke="#1A3A72" stroke-width="1" stroke-linecap="round" fill="none"/><circle cx="26" cy="18" r="5" fill="#B5D4F4" stroke="#1A3A72" stroke-width="0.4"/></svg>
+        <h3 class="travel-card-title">Getting There</h3>
+        <p class="travel-card-body">{{ site.data.settings.wedding.getting_there_description }}</p>
+        <a href="{{ wedding.location.google_maps_url }}" target="_blank" class="travel-card-link">Get directions</a>
+      </div>
+    </div>
+  </div>
+</section>

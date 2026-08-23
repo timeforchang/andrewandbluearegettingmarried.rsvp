@@ -1,0 +1,21 @@
+<!-- ════ NAV ════ -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-monogram">{{ site.data.couple.spouse1.short_name }} &amp; {{ site.data.couple.spouse2.short_name }}</a>
+    <ul class="nav-links">
+      {% for item in site.data.wedding_nav %}
+      <li><a href="#{{ item.anchor }}" data-section="{{ item.anchor }}">{{ item.label }}</a></li>
+      {% endfor %}
+    </ul>
+    <div class="nav-rsvp-wrap"><a href="#rsvp" class="nav-rsvp">RSVP</a></div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  {% for item in site.data.wedding_nav %}
+  <a href="#{{ item.anchor }}" onclick="closeDrawer()">{{ item.label }}</a>
+  {% endfor %}
+  <a href="#rsvp" onclick="closeDrawer()" class="rsvp-mobile">RSVP</a>
+</div>
