@@ -28,7 +28,7 @@
             content: '';
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.15);
             z-index: 0;
         }
         .std-card {
@@ -257,6 +257,32 @@
             background: #fdf0f0;
             color: #8b2020;
             border: 1px solid #e8c4c4;
+        }
+
+        .std-calendar-btn {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            width: 100%;
+            margin-top: 1rem;
+            padding: 0.85rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 2px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--primary-color);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .std-calendar-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
         }
 
         @media (max-width: 560px) {

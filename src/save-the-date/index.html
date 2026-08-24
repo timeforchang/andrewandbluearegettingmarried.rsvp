@@ -100,6 +100,12 @@ std_form_action: https://docs.google.com/forms/d/e/1FAIpQLSdYgVhBh17rx8tJBrL-TJq
   <div class="std-alert" id="std-alert"></div>
 </form>
 
+<a class="std-calendar-btn" id="std-calendar-btn"
+  href="{{ "/assets/a+b_wedding.ics" | prepend: site.baseurl }}"
+  download data-i18n="addToCalendar">
+  + Add to Calendar
+</a>
+
 <script>
 (function () {
   var FORM_ACTION = "{{ page.std_form_action }}";
@@ -140,6 +146,7 @@ std_form_action: https://docs.google.com/forms/d/e/1FAIpQLSdYgVhBh17rx8tJBrL-TJq
       attNo:            "I will not be able to make it.",
       submit:           "Send My Details",
       submitting:       "Sending…",
+      addToCalendar:    "+ Add to Calendar",
       successMsg:       "Thank you! We’ll be in touch with more details soon. ♥",
       errorEmpty:       "Please fill out all required fields and select your attendance.",
       errorNetwork:     "Something went wrong — please try again or email us directly."
@@ -164,6 +171,7 @@ std_form_action: https://docs.google.com/forms/d/e/1FAIpQLSdYgVhBh17rx8tJBrL-TJq
       attNo:            "我不会出席。",
       submit:           "提交",
       submitting:       "提交中…",
+      addToCalendar:    "+ 添加到日历",
       successMsg:       "感谢您的回复！我们将尽快与您联系。♥",
       errorEmpty:       "请填所有必填项。",
       errorNetwork:     "网络出错了，请重新提交或直接向我们发邮件。"
@@ -260,6 +268,7 @@ std_form_action: https://docs.google.com/forms/d/e/1FAIpQLSdYgVhBh17rx8tJBrL-TJq
       alertEl.textContent = t.successMsg;
       alertEl.style.display = 'block';
       form.style.display = 'none';
+      document.getElementById('std-calendar-btn').style.display = 'flex';
     })
     .catch(function () {
       alertEl.className = 'std-alert error';
