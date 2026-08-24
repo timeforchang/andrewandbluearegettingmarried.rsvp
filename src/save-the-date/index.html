@@ -36,7 +36,7 @@ std_form_action: https://docs.google.com/forms/d/e/1FAIpQLSdYgVhBh17rx8tJBrL-TJq
 
 <form id="std-form" class="std-form" novalidate>
 
-  <span class="std-field-label" data-i18n="labelNames">Your Name(s)</span>
+  <span class="std-field-label required" data-i18n="labelNames">Your Name(s)</span>
   <input class="std-input" type="text" name="name1"
     placeholder="Your Name"
     data-i18n-placeholder="placeholderName1"
@@ -46,7 +46,7 @@ std_form_action: https://docs.google.com/forms/d/e/1FAIpQLSdYgVhBh17rx8tJBrL-TJq
     data-i18n-placeholder="placeholderName2"
     autocomplete="off">
 
-  <span class="std-field-label" data-i18n="labelAddress">Mailing Address</span>
+  <span class="std-field-label required" data-i18n="labelAddress">Mailing Address</span>
   <input class="std-input" type="text" name="address_street"
     placeholder="Street Address"
     data-i18n-placeholder="placeholderStreet"
@@ -72,13 +72,13 @@ std_form_action: https://docs.google.com/forms/d/e/1FAIpQLSdYgVhBh17rx8tJBrL-TJq
       required autocomplete="country-name">
   </div>
 
-  <span class="std-field-label" data-i18n="labelEmail">Best Email to Contact</span>
+  <span class="std-field-label required" data-i18n="labelEmail">Best Email to Contact</span>
   <input class="std-input" type="email" name="email"
     placeholder="your@email.com"
     data-i18n-placeholder="placeholderEmail"
     required autocomplete="email">
 
-  <span class="std-attendance-label" data-i18n="labelAttendance">Will you be joining us?</span>
+  <span class="std-attendance-label required" data-i18n="labelAttendance">Will you be joining us?</span>
   <div class="std-radio-group">
     <div class="std-radio-option">
       <input type="radio" name="attendance" id="att-yes" value="Yes, I will be there!">
