@@ -180,7 +180,7 @@ for file_path in "${FILE_ARGS[@]}"; do
     pushd "$file_dir" > /dev/null
     
     # StatiCrypt saves to ./encrypted/ with same filename
-    if npx staticrypt "$filename" -t "$TEMPLATE_FILE" --remember 14; then
+    if npx staticrypt "$filename" -t "$TEMPLATE_FILE" --remember 14 --short; then
         # Check for encrypted file in the default 'encrypted' directory
         encrypted_file="encrypted/$filename"
         
