@@ -51,7 +51,7 @@ jobs:
         run: chmod +x scripts/encrypt-jekyll.sh
 
       - name: Encrypt specified pages
-        run: ./scripts/encrypt-jekyll.sh --skip-build --config config/encrypted-pages.yml
+        run: ./scripts/encrypt-jekyll.sh --skip-build --short --config config/encrypted-pages.yml
         env:
           STATICRYPT_PASSWORD: ${{ secrets.STATICRYPT_PASSWORD }}
 
