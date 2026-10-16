@@ -33,15 +33,15 @@
     "bootstrap": "^5.0.2",
     "bootstrap-icons": "^1.5.0",
     "cheerio": "1.0.0-rc.12",
-    "js-yaml": "^4.1.1"
+    "js-yaml": "^4.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.8",
+    "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.14.9",
     "autoprefixer": "^10.3.1",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
-    "cssnano": "^5.0.7",
+    "cssnano": "^9.8.0",
     "exports-loader": "^3.0.0",
     "file-loader": "^6.2.0",
     "javascript-obfuscator": "^5.4.2",
