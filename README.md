@@ -8,8 +8,8 @@ Most of the original work is from https://github.com/cbaclig/wedding and is than
 
 ### Prerequisites
 
-- **Node.js** (v18 or higher) - [Download](https://nodejs.org/)
-- **Ruby** (v3.2.11) [Download](https://www.ruby-lang.org/en/downloads/)
+- **Node.js** (v18 or higher, tested with 24.22.1) - [Download](https://nodejs.org/)
+- **Ruby** (v3.2 or higher, tested with v3.4.12) [Download](https://www.ruby-lang.org/en/downloads/)
 - **Bundler** - Install with: `gem install bundler`
 
 ### Initial Setup

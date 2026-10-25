@@ -27,13 +27,13 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2.2' # Match your local version
+          ruby-version: '3.4.12' # Match your local version
           bundler-cache: true # This runs bundle install and caches gems
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '24'
           cache: 'npm'
 
       - name: Install Node dependencies
