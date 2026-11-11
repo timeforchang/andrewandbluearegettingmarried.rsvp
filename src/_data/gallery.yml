@@ -1,0 +1,25 @@
+# Photo gallery (src/_includes/wedding/gallery.html)
+# width/height are the thumbnail sizes; they stop the page from jumping while photos load.
+# Add an optional `caption:` to any photo.
+
+prewedding:          # files in src/assets/img/prewedding/ (thumbs in prewedding/thumbs/)
+  - { file: 004.jpg, width: 720, height: 456 }
+  - { file: 083.jpg, width: 508, height: 720 }
+  - { file: 015.jpg, width: 720, height: 720 }
+  - { file: 093.jpg, width: 720, height: 480 }
+  - { file: 010.jpg, width: 485, height: 720 }
+  - { file: 120.jpg, width: 720, height: 459 }
+  - { file: 087.jpg, width: 506, height: 720 }
+  - { file: 002.jpg, width: 720, height: 467 }
+  - { file: 012.jpg, width: 520, height: 720 }
+  - { file: 096.jpg, width: 502, height: 720 }
+
+adventures:          # files in src/photos/
+  - { file: 1.china.jpg,        caption: China,         width: 709,  height: 945 }
+  - { file: 2.barcelona.jpg,    caption: Barcelona,     width: 709,  height: 945 }
+  - { file: 3.newyork.jpg,      caption: New York,      width: 709,  height: 597 }
+  - { file: 4.banff.jpg,        caption: Banff,         width: 1260, height: 945 }
+  - { file: 5. shanghai.jpg,    caption: Shanghai,      width: 1062, height: 576 }
+  - { file: 6. singapore.jpg,   caption: Singapore,     width: 709,  height: 945 }
+  - { file: 8. p_chicago.jpg,   caption: Chicago,       width: 739,  height: 560 }
+  - { file: 9.p_niagara.jpg,    caption: Niagara Falls, width: 709,  height: 945 }

@@ -4,7 +4,11 @@
   label: Wedding Party
 - anchor: schedule
   label: Schedule
+- anchor: dress-code
+  label: Dress Code
 - anchor: travel
   label: Travel
+- anchor: gallery
+  label: Gallery
 - anchor: registry
   label: Gifts

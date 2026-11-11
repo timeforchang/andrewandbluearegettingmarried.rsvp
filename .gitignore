@@ -32,3 +32,5 @@ Thumbs.db
 *.swp
 *.swo
 *~
+# Full-resolution photo originals (web-sized copies live in src/assets/img)
+originals/

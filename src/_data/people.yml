@@ -17,31 +17,42 @@ kids: []
 # Wedding party — Blue's side
 her_side:
   - name: Taylor Difonzo
+    pic: taylor.jpg
+    position: center 30%
     initials: TD
     role: Maid of Honor
     party: moh
     note: "[To be filled in]"
   - name: Nuzhat Kabir
+    pic: nuzhat.jpg
     initials: NK
     role: Maid of Honor
     party: moh
     note: "[To be filled in]"
   - name: Hannah Shute
+    pic: hannah.jpg
+    position: center 20%
     initials: HS
     role: Bridesmaid
     party: bridesmaid
     note: "[To be filled in]"
   - name: Nina Qin
+    pic: nina.jpg
+    position: center 40%
     initials: NQ
     role: Bridesmaid
     party: bridesmaid
     note: "[To be filled in]"
   - name: Brenna Li
+    pic: brenna.jpg
+    position: center 35%
     initials: BL
     role: Bridesmaid
     party: bridesmaid
     note: "[To be filled in]"
   - name: Sejal Bhalla
+    pic: sejal.jpg
+    position: center 12%
     initials: SB
     role: Bridesmaid
     party: bridesmaid
@@ -50,26 +61,32 @@ her_side:
 # Wedding party — Andrew's side
 his_side:
   - name: Allen Wang
+    pic: allen.jpg
     initials: AW
     role: Best Man
     party: best-man
     note: "[To be filled in]"
   - name: Matthew Chang
+    pic: matthew.jpg
+    position: center 30%
     initials: MC
     role: Groomsman
     party: groomsman
     note: "[To be filled in]"
   - name: Yu Hong Hwang
+    pic: yuhong.jpg
     initials: YH
     role: Groomsman
     party: groomsman
     note: "[To be filled in]"
   - name: Tim Yu
+    pic: tim_crop.jpg
     initials: TY
     role: Groomsman
     party: groomsman
     note: "[To be filled in]"
   - name: Connor Flanagan
+    pic: connor_flanagan.jpg
     initials: CF
     role: Groomsman
     party: groomsman

@@ -1,3 +1,13 @@
 ---
 layout: wedding
+body_class: home
 ---
+{% assign wedding = site.data.events | where: "main_event", true | first %}
+{% include wedding/hero.html %}
+{% include wedding/story.html %}
+{% include wedding/party.html %}
+{% include wedding/schedule.html %}
+{% include wedding/dress_code.html %}
+{% include wedding/travel.html %}
+{% include wedding/gallery.html %}
+{% include wedding/gifts.html %}

@@ -1,6 +1,6 @@
 google_analytics_id: G-X0BJ20T7XR
 
-hero_image: assets/img/flowers.jpg
+hero_image: assets/img/hero.jpg   # web-sized copy of pre-wedding photo 004
 hero_position: center center
 # mobile_hero_image: assets/img/bell.jpg
 # mobile_hero_position: center center
@@ -44,39 +44,94 @@ people:
 # Content for the src/_layouts/wedding.html one-page layout
 wedding:
   kicker: "Requesting the pleasure of your company"
+  time_display: "4:00 PM"
+  date_short: "Saturday, May 8, 2027"
   date_display: "Saturday, the Eighth of May, 2027"
-  countdown_target: "2027-05-08T16:30:00"
-  dress_code: "Formal"
-  dress_code_detail: "Black tie, floor-length gowns, or formal suits and cocktail attire welcome."
+  countdown_target: "2027-05-08T16:00:00"
+  dress_code: "Formal — Black tie optional"
+  dress_code_detail: "Tuxedos, dark suits, floor-length gowns, and pantsuits welcome."
+  dress_code_white: "Please refrain from wearing white, ivory, and cream tones, kindly reserved for the bride."
+  dress_code_note: "Block heels or wedges are best on the garden lawn."
   rsvp_cta: "Kindly RSVP"
   rsvp_deadline: "March 1, 2027"
+  # RSVP → Google Form. form_action is the form's ".../formResponse" URL; each entry is the
+  # number from "Get pre-filled link" (entry.NNNNNNNNN → "NNNNNNNNN").
+  rsvp_form:
+    form_action: "https://docs.google.com/forms/d/e/1FAIpQLSdMYnzmWxmVgbPlPtLJhvZbnl2UJwiHpYEyxLa9ZAwBIH4Daw/formResponse"
+    entries:
+      first_name: "1647615177"
+      last_name: "2110598612"
+      attending: "555594838"
+      meal: "1783234262"
+      brunch: "293963861"
+      plus_one: "420911128"
+      guest_name: "1847343524"
+      guest_meal: "2129278297"
+      message: "656062024"
   footer_date: "May 8, 2027"
 
   story_heading: "How it began"
-  story_text: "[To be filled in — our story goes here]"
+  # Blank lines between paragraphs start a new paragraph on the page.
+  story_text: |
+    Andrew and Blue met so serendipitously that it almost sounds like they made it up — both of them got lost trying to find the room to their class on the first day of university.
+
+    As their friendship grew over the year that followed, Andrew realized that he could not let someone as extraordinary go and finally built up the courage to ask Blue out after a screening of the Bee Movie.
+
+    Through a pandemic, five degrees, five moves, seven jobs, and countless getaways around the world, their relationship will culminate on their wedding on May 8, 2027. We hope to see you there!
 
   schedule_eyebrow: "May 8–9, 2027"
 
   venue_description: >-
-    Once the private estate of Cator Woolford, these 39 acres in Druid Hills are now home to the
-    Frazer Center, a center supporting children and adults with developmental disabilities. The
-    gardens unfold as a series of outdoor "rooms": a grand ceremony lawn, green meadow, circular
-    courtyard, and the original Italian staircase.
-  hotel_description: "[To be filled in — hotel name, rate, booking code, and block expiration date]"
-  hotel_link: "#"
+    A former private estate in Druid Hills, now home to the Frazer Center. The gardens unfold as
+    outdoor "rooms": a ceremony lawn, meadow, courtyard, and the original Italian staircase.
+  # Travel (src/_includes/wedding/travel.html)
+  getting_there:
+    - "Free parking in the Frazer Center lot at the top of the hill"
+    - "A short walk or golf-cart ride down to the gardens"
+    - "Rideshare drop-off available"
+  hotel_dates_short: "May 7–10, 2027"
+  hotel_block_name: "Andrew & Blue Wedding Room Block"
+  hotel_dates: "Friday, May 7 – Monday, May 10, 2027"
+  hotel_note: "Both hotels are next door to each other in downtown Decatur, a short drive from the venue."
+  hotels:
+    - name: "Courtyard by Marriott Atlanta Decatur Downtown/Emory"
+      short: "Courtyard by Marriott"
+      sub: "Decatur Downtown / Emory"
+      address: "130 Clairemont Avenue, Decatur, GA 30030"
+      maps_url: "https://www.google.com/maps/search/?api=1&query=Courtyard+by+Marriott+Atlanta+Decatur+Downtown+Emory+130+Clairemont+Ave+Decatur+GA"
+      book_by: "April 8, 2027"
+      link: "https://www.marriott.com/event-reservations/reservation-link.mi?id=1789566652840&key=GRP&app=resvlink"
+    - name: "Hampton Inn & Suites Atlanta Decatur/Emory"
+      short: "Hampton Inn & Suites"
+      sub: "Decatur / Emory"
+      address: "116 Clairemont Avenue, Decatur, GA 30030"
+      maps_url: "https://www.google.com/maps/search/?api=1&query=Hampton+Inn+%26+Suites+Atlanta+Decatur+Emory+116+Clairemont+Ave+Decatur+GA"
+      book_by: ""
+      link: "https://group.hamptoninn.com/96sgss"
   getting_there_description: >-
-    Free parking is available in the Frazer Center lot at the top of the hill with the gardens a
-    short walk (or golf cart ride) down. Rideshare drop-off works too. We recommend allowing a
-    little extra time on a Saturday evening.
+    Free parking is at the top of the hill in the Frazer Center lot; the gardens are a short walk
+    (or golf-cart ride) down. Rideshare drop-off works too.
 
   registry_note: >-
-    We don't have a traditional registry. Your presence at our wedding is truly more than enough.
+    We don't have a traditional registry. Your presence at our wedding is more than enough.
     If you'd like to mark the occasion with a gift, we'd be deeply moved by a contribution toward
     a donation to a cause close to both our hearts or our new life together.
-  charity_name: "[Charity Name]"
-  charity_link: "#"
+  charities:
+    - name: "Palestine Children's Relief Fund"
+      link: "https://pcrf1.app.neoncrm.com/campaigns/2532/fundraiser/1281261"
+    - name: "Planned Parenthood"
+      link: "https://www.plannedparenthood.org/"
+    - name: "The Trevor Project"
+      link: "https://www.thetrevorproject.org/"
   honeymoon_fund_description: >-
     In place of a registry, we've set up a small fund for our life together. Whether it goes
     toward our honeymoon, a corner of a first home, something special for Mel, or a
     long-postponed dinner, we're so grateful.
   honeymoon_fund_link: "#"
+  # Payment options for the honeymoon fund. Leave a value blank ("") to hide that button.
+  payments:
+    venmo: "Blue-Lin"        # without the @, e.g. "blue-lin"
+    paypal: "timeforchang"     # the part after paypal.me/
+    zelle: "4043982933"          # email or phone registered with Zelle
+    note: "Wedding gift"              # prefilled note in Venmo
+    card_link: ""                     # optional: Stripe/Square payment link for credit cards

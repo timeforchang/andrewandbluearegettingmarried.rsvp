@@ -1,32 +1,18 @@
 <!-- ════ HERO ════ -->
-<section id="hero" style="background-image:url('{{ "/assets/img/porcelain-blue.jpg" | prepend: site.baseurl }}')">
-  <div class="hero-content">
-    <p class="hero-kicker">{{ site.data.settings.wedding.kicker }}</p>
-    <h1 class="hero-names">
-      {{ site.data.couple.spouse1.short_name }}<span class="hero-amp">&amp;</span>{{ site.data.couple.spouse2.short_name }}
-    </h1>
-    <div class="hero-ornament">
-      <div class="hero-ornament-line"></div>
-      <div class="hero-ornament-dot"></div>
-      <div class="hero-ornament-diamond"></div>
-      <div class="hero-ornament-dot"></div>
-      <div class="hero-ornament-line"></div>
-    </div>
-    <p class="hero-date">{{ site.data.settings.wedding.date_display }}</p>
-    <div class="hero-venue-wrap">
-      <p class="hero-venue-name">{{ wedding.location.venue_name }}</p>
-      <p class="hero-loc">{{ wedding.location.city }}, {{ wedding.location.long_state }}</p>
-    </div>
-    <p class="hero-dress">Dress code &nbsp;·&nbsp; {{ site.data.settings.wedding.dress_code }}</p>
-    <a href="#rsvp" class="hero-cta">{{ site.data.settings.wedding.rsvp_cta }}</a>
-    <div class="hero-countdown">
-      <div class="cd-unit"><span class="cd-num" id="cd-days">—</span><span class="cd-lbl">Days</span></div>
-      <span class="cd-sep">·</span>
-      <div class="cd-unit"><span class="cd-num" id="cd-hours">—</span><span class="cd-lbl">Hours</span></div>
-      <span class="cd-sep">·</span>
-      <div class="cd-unit"><span class="cd-num" id="cd-mins">—</span><span class="cd-lbl">Mins</span></div>
-      <span class="cd-sep">·</span>
-      <div class="cd-unit"><span class="cd-num" id="cd-secs">—</span><span class="cd-lbl">Secs</span></div>
+<section id="hero">
+  <div class="hero-bg" style="background-image:url('{{ site.data.settings.hero_image | prepend: "/" | prepend: site.baseurl }}')" role="img" aria-label="{{ site.data.couple.spouse1.short_name }} and {{ site.data.couple.spouse2.short_name }} on a mountain ridge above a lake"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-overlay">
+    <h1 class="hero-title">We are getting married</h1>
+    <p class="hero-date">{{ site.data.settings.wedding.date_short }} &nbsp;·&nbsp; {{ site.data.settings.wedding.time_display }}</p>
+    <p class="hero-place">{{ wedding.location.venue_name }} &nbsp;·&nbsp; {{ wedding.location.city }}, {{ wedding.location.long_state }}</p>
+    <a href="{{ site.baseurl }}/rsvp/" class="hero-rsvp-btn" id="heroRsvp">RSVP</a>
+    <p class="hero-deadline" id="heroRsvpNote">Kindly reply by {{ site.data.settings.wedding.rsvp_deadline }}</p>
+    <div class="hero-countdown" aria-label="Countdown to the wedding">
+      <div class="cd-box"><span class="cd-num" id="cd-days">—</span><span class="cd-lbl">Days</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-hours">—</span><span class="cd-lbl">Hours</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-mins">—</span><span class="cd-lbl">Min</span></div>
+      <div class="cd-box"><span class="cd-num" id="cd-secs">—</span><span class="cd-lbl">Sec</span></div>
     </div>
   </div>
 </section>

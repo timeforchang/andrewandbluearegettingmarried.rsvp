@@ -6,11 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ site.data.couple.spouse1.short_name }} &amp; {{ site.data.couple.spouse2.short_name }} — May 8, 2027</title>
+<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.data.couple.spouse1.short_name }} &amp; {{ site.data.couple.spouse2.short_name }} — May 8, 2027</title>
 <link rel="icon" href="{{ "/assets/img/favicon.png?v=1.0" | prepend: site.baseurl }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ "/assets/css/wedding.css" | prepend: site.baseurl }}">
 {% if jekyll.environment == "production" %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.data.settings.google_analytics_id }}"></script>
@@ -22,16 +22,12 @@ gtag('config', '{{ site.data.settings.google_analytics_id }}');
 </script>
 {% endif %}
 </head>
-<body>
+<body class="{{ page.body_class }}">
 
 {% include wedding/nav.html %}
-{% include wedding/hero.html %}
-{% include wedding/story.html %}
-{% include wedding/party.html %}
-{% include wedding/schedule.html %}
-{% include wedding/travel.html %}
-{% include wedding/gifts.html %}
-{% include wedding/rsvp.html %}
+<main>
+{{ content }}
+</main>
 {% include wedding/footer.html %}
 {% include wedding/scripts.html %}
 </body>

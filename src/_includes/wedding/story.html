@@ -1,13 +1,10 @@
 <!-- ════ OUR STORY ════ -->
 <span class="section-anchor" id="story"></span>
-<section class="page-section cream" style="padding-bottom:64px;">
-  <img class="corner-img corner-tl" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
-  <img class="corner-img corner-tr" src="{{ "/assets/img/porcelain-corner.png" | prepend: site.baseurl }}" alt="" aria-hidden="true">
+<section class="page-section story-section pf-top">
   <div class="section-inner">
     <p class="section-eyebrow">Our Story</p>
     <h2 class="section-heading">{{ site.data.settings.wedding.story_heading }}</h2>
-    <div class="section-ornament"><div class="section-ornament-line"></div><div class="section-ornament-dot"></div><div class="section-ornament-diamond"></div><div class="section-ornament-dot"></div><div class="section-ornament-line"></div></div>
-    <div class="story-layout">
+    <div class="story-layout story-card">
 
       <div class="story-media reveal">
         <div class="story-slideshow">
@@ -39,7 +36,7 @@
 
       <div class="story-text-col reveal">
         <div class="story-body">
-          <p class="story-drop-cap">{{ site.data.settings.wedding.story_text }}</p>
+          <div class="story-drop-cap">{{ site.data.settings.wedding.story_text | markdownify }}</div>
         </div>
       </div>
 
