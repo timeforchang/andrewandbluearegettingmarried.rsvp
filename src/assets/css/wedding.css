@@ -929,3 +929,32 @@ button.gift-card-btn{background:transparent;cursor:pointer;}
   color:var(--ink-light);background:transparent;border:1px solid rgba(26,58,114,.25);padding:13px 22px;cursor:pointer;
 }
 .rsvp-confirm-no:hover{border-color:var(--cobalt);color:var(--cobalt);}
+
+/* ─── MOBILE FIXES (must out-specify the desktop rules above) ─── */
+@media(max-width:900px){
+  /* Our Story: stack photo above text instead of two squished columns */
+  .story-card.story-layout{grid-template-columns:1fr;gap:22px;}
+  .story-section{padding-top:48px;}
+  .story-card{padding:14px 14px 22px;}
+  .story-card .story-text-col{padding:0 6px;}
+  .story-card .story-text-col .story-body{text-align:left;max-width:none;font-size:16px;line-height:1.6;}
+  .story-card .slideshow-track{aspect-ratio:4/3;}
+  .story-card .ss-btn{width:34px;height:34px;}
+
+  /* Dress code: 2x2 grid that fits the screen */
+  .dress-section .dress-examples{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px;max-width:340px;}
+  .dress-section .dress-fig{width:92px;height:92px;padding:10px 0;}
+  .dress-section .dress-example-title{font-size:17px;}
+  .dress-formal{font-size:25px;}
+  .dress-lead-text{font-size:16px;padding:0 4px;}
+  .dress-tips{gap:12px;margin-top:24px;}
+  .dress-tip{padding:14px 16px;}
+}
+@media(max-width:480px){
+  .page-section{padding:48px 16px;}
+  .story-card{padding:10px 10px 20px;}
+  .slide-caption{bottom:8px;right:8px;font-size:8.5px;padding:4px 8px;}
+  .hotel-row{grid-template-columns:1fr;gap:10px;}
+  .hotel-btn{justify-self:start;}
+  .gift-card{padding:22px 18px;}
+}
