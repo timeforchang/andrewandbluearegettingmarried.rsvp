@@ -958,3 +958,142 @@ button.gift-card-btn{background:transparent;cursor:pointer;}
   .hotel-btn{justify-self:start;}
   .gift-card{padding:22px 18px;}
 }
+
+/* ─── LARGE SCREENS: fluid scale ───
+   --u is "one pixel" that grows with the viewport: 1px at ≤1280px wide,
+   ~1.3px at 1920px, capped at 1.45px (≈2400px+). Widths and type below are
+   written as calc(N * var(--u)) so the whole layout scales up proportionally
+   instead of sitting in a narrow column in the middle of a big monitor. */
+@media(min-width:1281px){
+  :root{--u:clamp(1px,calc(0.4px + 0.046875vw),1.45px);}
+
+  /* nav */
+  .nav-links a{font-size:calc(17*var(--u));padding:0 calc(13*var(--u));}
+  .nav-rsvp{font-size:calc(10*var(--u));padding:calc(9*var(--u)) calc(22*var(--u));}
+  nav.scrolled .nav-monogram,body:not(.home) nav .nav-monogram{font-size:calc(28*var(--u));}
+
+  /* hero */
+  .hero-overlay{width:min(calc(500*var(--u)),40%);}
+  .hero-title{font-size:calc(50*var(--u));}
+  .hero-date{font-size:calc(27*var(--u));}
+  .hero-place{font-size:calc(10.5*var(--u));}
+  .hero-rsvp-btn{font-size:calc(11.5*var(--u));padding:calc(16*var(--u)) calc(62*var(--u));}
+  .hero-deadline{font-size:calc(15.5*var(--u));}
+  .cd-box{width:calc(74*var(--u));}
+  .cd-num{font-size:calc(28*var(--u));}
+  .cd-lbl{font-size:calc(8.5*var(--u));}
+
+  /* shared section */
+  .page-section{padding:calc(44*var(--u)) calc(48*var(--u));}
+  .story-section{padding-top:calc(56*var(--u));}
+  .section-inner{max-width:calc(920*var(--u));}
+  .section-eyebrow{font-size:calc(10.5*var(--u));}
+  .section-heading{font-size:calc(38*var(--u));margin-bottom:calc(22*var(--u));}
+
+  /* story */
+  .story-card{padding:calc(26*var(--u));}
+  .story-card.story-layout{gap:calc(36*var(--u));}
+  .story-card .story-body{font-size:calc(16*var(--u));}
+  .story-card .story-drop-cap>p:first-child::first-letter{font-size:calc(54*var(--u));}
+  .ss-btn{width:calc(38*var(--u));height:calc(38*var(--u));}
+  .ss-prev{left:calc(-19*var(--u));}
+  .ss-next{right:calc(-19*var(--u));}
+  .slide-caption{font-size:calc(9.5*var(--u));}
+
+  /* wedding party */
+  .party-member{width:calc(124*var(--u));}
+  .party-grid{gap:calc(12*var(--u)) calc(16*var(--u));}
+  .party-photo{width:calc(92*var(--u));}
+  .party-role{font-size:calc(8.5*var(--u));}
+  .party-name{font-size:calc(17*var(--u));}
+  .party-note{font-size:calc(14*var(--u));}
+  .party-divider-label{font-size:calc(9*var(--u));}
+
+  /* schedule */
+  .schedule-wrap,.day-label-row{max-width:calc(920*var(--u));gap:0 calc(48*var(--u));}
+  .sched-day-label{font-size:calc(9*var(--u));}
+  .sched-col-title{font-size:calc(15*var(--u));}
+  .sched-time{font-size:calc(16*var(--u));min-width:calc(66*var(--u));}
+  .sched-event{font-size:calc(19*var(--u));}
+  .sched-sub{font-size:calc(11.5*var(--u));}
+  .sched-footnote{font-size:calc(14*var(--u));padding-left:calc(68*var(--u));}
+
+  /* dress code */
+  .dress-formal{font-size:calc(28*var(--u));}
+  .dress-lead-text{font-size:calc(16.5*var(--u));}
+  .dress-section .dress-examples{max-width:calc(720*var(--u));gap:calc(18*var(--u));}
+  .dress-section .dress-fig{width:calc(104*var(--u));height:calc(104*var(--u));padding:calc(12*var(--u)) 0;}
+  .dress-section .dress-example-title{font-size:calc(18*var(--u));}
+  .dress-example-sub{font-size:calc(11.5*var(--u));}
+  .dress-tips{max-width:calc(720*var(--u));}
+  .dress-tip{padding:calc(14*var(--u)) calc(20*var(--u));}
+  .dress-tip-label{font-size:calc(9*var(--u));}
+  .dress-tip-text{font-size:calc(16*var(--u));}
+
+  /* travel */
+  .travel-grid{max-width:calc(860*var(--u));gap:calc(22*var(--u));}
+  .travel-venue{padding:calc(24*var(--u)) calc(28*var(--u));}
+  .travel-stay{padding:calc(24*var(--u)) calc(28*var(--u)) calc(18*var(--u));}
+  .travel-h{font-size:calc(9.5*var(--u));}
+  .travel-name{font-size:calc(23*var(--u));}
+  .travel-addr{font-size:calc(10.5*var(--u));}
+  .travel-list li{font-size:calc(16*var(--u));}
+  .travel-btn,.hotel-btn{font-size:calc(9.5*var(--u));}
+  .stay-sub{font-size:calc(15.5*var(--u));}
+  .hotel-name{font-size:calc(22*var(--u));}
+  .hotel-loc{font-size:calc(9*var(--u));}
+  .hotel-bookby{font-size:calc(14.5*var(--u));}
+  .stay-foot{font-size:calc(14*var(--u));}
+
+  /* gallery */
+  .gallery-inner{max-width:calc(880*var(--u));}
+  .gallery-grid{gap:calc(10*var(--u));}
+  .gallery-filter,.gallery-more{font-size:calc(9.5*var(--u));}
+
+  /* gifts */
+  .registry-note{font-size:calc(15.5*var(--u));max-width:calc(680*var(--u));}
+  .gift-cards{max-width:calc(860*var(--u));gap:calc(16*var(--u));}
+  .gift-card{padding:calc(22*var(--u)) calc(30*var(--u));}
+  .gift-card-eyebrow{font-size:calc(8.5*var(--u));}
+  .gift-card-title{font-size:calc(21*var(--u));}
+  .gift-card-body{font-size:calc(14.5*var(--u));}
+  .gift-card-btn{font-size:calc(9*var(--u));}
+  .charity-list,.pay-options{max-width:calc(300*var(--u));}
+  .charity-list a{font-size:calc(18*var(--u));}
+  .pay-btn-name{font-size:calc(10*var(--u));}
+  .pay-btn-handle{font-size:calc(16*var(--u));}
+
+  /* rsvp */
+  .rsvp-layout{max-width:calc(980*var(--u));gap:calc(64*var(--u));}
+  .rsvp-note{font-size:calc(18*var(--u));max-width:calc(440*var(--u));}
+  .rsvp-form input,.rsvp-form select,.rsvp-form textarea{font-size:calc(12*var(--u));padding:calc(12*var(--u)) calc(14*var(--u));}
+  .rsvp-submit{font-size:calc(10*var(--u));padding:calc(15*var(--u));}
+
+  /* footer */
+  footer{padding:calc(34*var(--u));}
+  .footer-mono{font-size:calc(32*var(--u));}
+  .footer-date{font-size:calc(9*var(--u));}
+}
+
+/* ─── SMALL PHONES (≤360px, e.g. iPhone SE / older Androids) ─── */
+@media(max-width:360px){
+  .page-section{padding:40px 12px;}
+  #hero{padding:84px 12px 44px;}
+  .hero-rsvp-btn{padding:14px 36px;letter-spacing:.26em;}
+  .hero-countdown{gap:6px;}
+  .cd-box{width:58px;}
+  .cd-num{font-size:22px;}
+  .cd-lbl{letter-spacing:.14em;}
+  .section-heading{font-size:26px;}
+  .story-card{padding:8px 8px 18px;}
+  .story-card .story-body{font-size:15.5px;}
+  .party-grid{gap:18px 8px;}
+  .party-member{width:calc(33.33% - 6px);}
+  .party-photo{width:72px;}
+  .dress-section .dress-fig{width:80px;height:80px;}
+  .gallery-grid{gap:6px;}
+  .gift-card{padding:20px 14px;}
+  .travel-venue,.travel-stay{padding:20px 16px 14px;}
+  .sched-time{min-width:56px;font-size:15px;}
+  .sched-footnote{padding-left:0;}
+}
